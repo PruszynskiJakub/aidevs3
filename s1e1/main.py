@@ -6,7 +6,7 @@ from openai import OpenAI
 from playwright.async_api import async_playwright
 
 load_dotenv()
-apiKey = os.getenv("OPEN_AI_API_KEY")
+apiKey = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI(
     api_key=apiKey
