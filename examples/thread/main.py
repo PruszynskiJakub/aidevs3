@@ -68,7 +68,6 @@ async def demo():
     for message in demo_messages:
         print('--- NEXT TURN ---')
         print('Adam:', message['content'])
-        assistant_response: ChatCompletionMessageParam or None = None
         try:
             system_prompt = create_system_prompt(previous_summarization)
 
