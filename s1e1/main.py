@@ -18,7 +18,7 @@ async def main():
     playwright = await async_playwright().start()
     browser = await playwright.chromium.launch()
     page = await browser.new_page()
-    await page.goto(os.getenv('AG3NTS_URL'))
+    await page.goto(os.getenv('AG3NTS_XYZ_URL'))
 
     question = await page.text_content('p[id="human-question"]')
     print(question)

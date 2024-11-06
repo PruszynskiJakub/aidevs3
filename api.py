@@ -5,13 +5,14 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-apiKey = os.getenv("AI_DEVS_API_KEY")
+apiKey = os.getenv("AG3NTS_API_KEY")
+hq_url_report = os.getenv("AG3NTS_HQ_URL_REPORT")
 
 
 def answer(task: str, response: Any):
     print(f'Send answer to task {task} with answer {response}')
     result = requests.post(
-        url="https://poligon.aidevs.pl/verify",
+        url=hq_url_report,
         json={
             "task": task,
             "answer": response,

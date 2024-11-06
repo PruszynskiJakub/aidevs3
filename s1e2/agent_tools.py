@@ -13,7 +13,7 @@ class MakeApiCallParams(TypedDict):
 async def make_api_call(params: MakeApiCallParams) -> str:
     params.pop('_thoughts')
     response = requests.get(
-        url=os.getenv('AG3NTS_URL_VERIFY'),
+        url=os.getenv('AG3NTS_XYZ_URL_VERIFY'),
         json=params
     )
     return response.json()
