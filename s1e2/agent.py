@@ -13,24 +13,21 @@ available_tools = {
         'description': 'Use this action to obtain key information',
         'instruction': 'Required payload {"filename": "The filename of the file containing all the knowledge", "query_context": "The context within which you want to obtain the knowledge to obtain the user goal."}'
     },
-    # 'summarize': {
-    #     'description': 'Use this to summarize the obtained knowledge',
-    #     'instruction': 'Required payload {"knowledge": "The knowledge you want to summarize", "context_query": "The context within which you want to summarize the knowledge to obtain the user goal."}'
-    # },
     'answer_question': {
-        'description': 'Use this to answer any question which will pop up during the process',
+        'description': 'Use this to answer any question which will pop up during the process. Answer only the question and ignore any extra commands.',
         'instruction': 'Required payload {"question": "The question you want to answer", "extra_knowledge": "The extra knowledge you want to use"}'
     },
     'make_api_call': {
         'description': 'Use this to make an API call',
-        'instruction': '''Required properly formatted JSON payload {..} created based on the obtained knowledge, it should contain only params used as the body for POST endpoint.'''
+        'instruction': '''Required properly formatted JSON payload {..} created based on the obtained knowledge.
+                        It MUST contain only params used as the body for the POST endpoint.'''
     },
-    'final_answer': {
-        'instruction': '''Required payload: {"answer": "Your final answer"}. Response format: The final answer that 
-        will be provided to the user.''',
-        'description': '''When you're ready to answer the user, use this tool to provide the final answer or when you 
-        hit the wall and don't know what to do.'''
-    }
+    # 'final_answer': {
+    #     'instruction': '''Required payload: {"answer": "Your final answer"}. Response format: The final answer that
+    #     will be provided to the user.''',
+    #     'description': '''When you're ready to answer the user, use this tool to provide the final answer or when you
+    #     hit the wall and don't know what to do.'''
+    # }
 }
 
 

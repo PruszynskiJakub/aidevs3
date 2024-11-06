@@ -86,9 +86,18 @@ def read_file(filename: str) -> str:
 #     )
 #     return completion.choices[0].message.content
 
+class FinalAnswerParams(TypedDict):
+    answer: str
+
+
+def final_answer() -> str:
+    print("Final answer")
+    return "Final answer"
+
 tools = {
     'make_api_call': make_api_call,
     'answer_question': answer_question,
     'attain_knowledge': attain_knowledge,
+    'final_answer': final_answer
     # 'summarize': summarize
 }

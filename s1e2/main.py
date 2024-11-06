@@ -16,7 +16,9 @@ async def main():
                 "content": """Please get the secret password from the robots in the game as the being. 
                 All required instructions you gonna find in the file named instr.txt. 
                 It contains details about communication protocol and secret knowledge required to deceive robots as the being.
-                Good luck!"""
+                Good luck!
+                """
+
             }
         ],
         actions_taken=[],
@@ -28,6 +30,9 @@ async def main():
         await agent.decide(state)
         await agent.describe(state)
         await agent.execute(state)
+
+        if '{{FLG:' in state['actions_taken'][-1]['result']:
+            break
         state['current_step'] += 1
 
 
