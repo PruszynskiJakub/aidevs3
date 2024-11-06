@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="import fix">
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Extract url">
       <change afterPath="$PROJECT_DIR$/s1e2/agent.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/s1e2/agent_tools.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/s1e2/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730821383842</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Extract url">
+      <option name="closed" value="true" />
+      <created>1730880915028</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730880915028</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,7 +294,8 @@
     <MESSAGE value="Move service" />
     <MESSAGE value="Create dummy solution to complete the task" />
     <MESSAGE value="import fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="import fix" />
+    <MESSAGE value="Extract url" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extract url" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
