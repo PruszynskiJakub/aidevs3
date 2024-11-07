@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Breaking a bit the agent">
-      <change afterPath="$PROJECT_DIR$/s1e3/main.py" afterDir="false" />
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Print json">
+      <change afterPath="$PROJECT_DIR$/examples/tiktokenizer/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/websearch/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s1e1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/s1e1/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s1e2/agent_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/s1e2/agent_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenAiService.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenAiService.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,7 @@
     "Python.index.executor": "Run",
     "Python.main (1).executor": "Run",
     "Python.main (2).executor": "Run",
+    "Python.main (3).executor": "Run",
     "Python.main.executor": "Run",
     "Python.main_short.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -73,7 +73,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (2)">
+  <component name="RunManager" selected="Python.main (3)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
@@ -110,6 +110,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s1e3/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aidevs3" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples/tiktokenizer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/tiktokenizer/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,6 +186,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.main_short" />
@@ -307,7 +330,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730884017456</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Implement s1e3">
+      <option name="closed" value="true" />
+      <created>1730897011356</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1730897011356</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Print json">
+      <option name="closed" value="true" />
+      <created>1730900454814</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1730900454814</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,7 +377,9 @@
     <MESSAGE value="Extract url" />
     <MESSAGE value="Implement more agentic approach to solve the riddle" />
     <MESSAGE value="Breaking a bit the agent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Breaking a bit the agent" />
+    <MESSAGE value="Implement s1e3" />
+    <MESSAGE value="Print json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Print json" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
