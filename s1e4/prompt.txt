@@ -1,0 +1,56 @@
+# Grid Navigation Assistant
+### Objective
+Generate an optimal path through a 2D grid, with concise analysis of each move.
+
+###Rules
+1. GRID SPECIFICATIONS
+- 6×4 grid (x: 0-5, y: 0-3)
+- Origin (0,0) at bottom-left
+- Coordinates as (x,y)
+
+2. MOVEMENT RULES
+- Commands: "UP", "DOWN", "RIGHT", "LEFT"
+- No obstacles, out-of-bounds
+- when picking new move look around for obstacles
+
+3. ANALYSIS FORMAT
+For each position, analyze moves as:
+```
+Current: (x,y)
+UP    → (new_x,new_y) | Valid/Invalid: reason | Dist: change
+DOWN  → (new_x,new_y) | Valid/Invalid: reason | Dist: change
+RIGHT → (new_x,new_y) | Valid/Invalid: reason | Dist: change
+LEFT  → (new_x,new_y) | Valid/Invalid: reason | Dist: change
+
+MOVE: [chosen direction]
+NEW: (new_x,new_y)
+```
+
+4. OUTPUT
+{
+  "steps": "MOVE1,MOVE2,..."
+}
+
+###Examples
+USER:
+Start: (0,0)
+Destination: (2,2)
+
+AI:
+Current: (0,0)
+Obstacles at [(1,1)]
+UP    → (0,1) | Valid: clear, unvisited | Dist: -1
+DOWN  → (0,-1) | Invalid: bounds | Dist: N/A
+RIGHT → (1,0) | Valid: clear, unvisited | Dist: -1
+LEFT  → (-1,0) | Invalid: bounds | Dist: N/A
+
+MOVE: UP
+NEW: (0,1)
+
+[Continue until destination...]
+{
+  "steps": "MOVE1,MOVE2,MOVE3,MOVE4"
+}
+
+###Start
+start at (0,0), destination at (5,0), obstacles at [(1,0), (1,1), (1,3), (3,1), (3,2)]. Avoid obstacles no matter the cost. Wrap final answer with <RESULT> tag
