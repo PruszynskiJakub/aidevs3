@@ -94,6 +94,7 @@ def final_answer() -> str:
     print("Final answer")
     return "Final answer"
 
+
 tools = {
     'make_api_call': make_api_call,
     'answer_question': answer_question,
