@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Optimize impoorts">
-      <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/websearch/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/websearch/prompts.py" afterDir="false" />
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Add method transcribe to OpenAiService">
+      <change afterPath="$PROJECT_DIR$/s2e1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="">
       <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-00-sektor_C4.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-01-sektor_A1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-02-sektor_A3.txt" afterDir="false" />
@@ -37,7 +38,11 @@
       <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f08.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f09.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/weapons_tests.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
+      <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/websearch/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/websearch/prompts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,55 +83,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.api.executor&quot;: &quot;Run&quot;,
-    &quot;Python.index.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main (2).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main (3).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main (4).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_short.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jakubpruszynski/PycharmProjects/aidevs3/s1e4&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.api.executor": "Run",
+    "Python.index.executor": "Run",
+    "Python.main (1).executor": "Run",
+    "Python.main (2).executor": "Run",
+    "Python.main (3).executor": "Run",
+    "Python.main (4).executor": "Run",
+    "Python.main (5).executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main_short.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jakubpruszynski/PycharmProjects/aidevs3/s1e4",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/s1e4" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/s2e1/recordings" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/s1e2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aidevs3" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s1e2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s1e2/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.main (5)">
     <configuration name="main (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
@@ -193,6 +178,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main (5)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aidevs3" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s2e1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s2e1/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
@@ -217,11 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (5)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.main (4)" />
         <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
-        <item itemvalue="Python.main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -236,6 +243,8 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="" />
+      <changelist id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="" />
+      <changelist id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="" />
       <created>1729237639526</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -409,7 +418,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731149556299</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Add recordings to s2e1">
+      <option name="closed" value="true" />
+      <created>1731338385353</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1731338385353</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add method transcribe to OpenAiService">
+      <option name="closed" value="true" />
+      <created>1731340060345</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1731340060345</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -446,7 +471,9 @@
     <MESSAGE value="Add prompt for s1e4" />
     <MESSAGE value="Do s1e5" />
     <MESSAGE value="Optimize impoorts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize impoorts" />
+    <MESSAGE value="Add recordings to s2e1" />
+    <MESSAGE value="Add method transcribe to OpenAiService" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add method transcribe to OpenAiService" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
