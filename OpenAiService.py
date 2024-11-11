@@ -31,3 +31,15 @@ class OpenAiService:
             print(message.__str__())
             tokens += self._encoding.encode(message.__str__())
         return len(tokens)
+
+    async def transcribe(self, audio_file: str, prompt: str = '') -> str:
+        try:
+            transcription = await self._client.audio.transcriptions.create(
+                file=open(audio_file, 'rb'),
+                model="whisper-1",
+                prompt=prompt,
+            )
+            return transcription.text
+        except Exception as e:
+            print(f"Error: {e}")
+            raise e
