@@ -4,11 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Print json">
-      <change afterPath="$PROJECT_DIR$/examples/tiktokenizer/main.py" afterDir="false" />
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Optimize impoorts">
+      <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/examples/websearch/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/websearch/prompts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-00-sektor_C4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-01-sektor_A1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-02-sektor_A3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-03-sektor_A3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-04-sektor_B2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-05-sektor_C1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-06-sektor_C2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-07-sektor_C4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-08-sektor_A1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-09-sektor_C2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-10-sektor-C1.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-11-sektor-C2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-12-sektor_A1.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-99" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f03.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f04.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f05.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f08.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f09.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/weapons_tests.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenAiService.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenAiService.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,31 +78,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.api.executor": "Run",
-    "Python.index.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main (2).executor": "Run",
-    "Python.main (3).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.main_short.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jakubpruszynski/PycharmProjects/aidevs3",
-    "settings.editor.selected.configurable": "ml.llm.LLMProjectConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.index.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (3).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (4).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_short.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jakubpruszynski/PycharmProjects/aidevs3/s1e4&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/s1e4" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/s1e2" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/s1e2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (3)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
@@ -140,6 +171,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main (4)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aidevs3" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s1e1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s1e1/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
@@ -149,33 +202,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples/thread" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s1e5" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/thread/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main_short" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="aidevs3" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s1e2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s1e2/main_short.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s1e5/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,11 +217,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.main (4)" />
         <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.main_short" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -346,7 +377,39 @@
       <option name="project" value="LOCAL" />
       <updated>1730900454814</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add counting tokens">
+      <option name="closed" value="true" />
+      <created>1730966298216</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1730966298216</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add prompt for s1e4">
+      <option name="closed" value="true" />
+      <created>1730997045364</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1730997045364</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Do s1e5">
+      <option name="closed" value="true" />
+      <created>1731085261234</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1731085261234</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Optimize impoorts">
+      <option name="closed" value="true" />
+      <created>1731149556299</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1731149556299</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -379,7 +442,11 @@
     <MESSAGE value="Breaking a bit the agent" />
     <MESSAGE value="Implement s1e3" />
     <MESSAGE value="Print json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Print json" />
+    <MESSAGE value="Add counting tokens" />
+    <MESSAGE value="Add prompt for s1e4" />
+    <MESSAGE value="Do s1e5" />
+    <MESSAGE value="Optimize impoorts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize impoorts" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
