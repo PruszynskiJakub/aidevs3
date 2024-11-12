@@ -4,40 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Implement s2e1">
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Add map fragments to repo">
+      <change afterPath="$PROJECT_DIR$/s2e2/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="">
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-00-sektor_C4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-01-sektor_A1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-02-sektor_A3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-03-sektor_A3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-04-sektor_B2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-05-sektor_C1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-06-sektor_C2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-07-sektor_C4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-08-sektor_A1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-09-sektor_C2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-10-sektor-C1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-11-sektor-C2.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-12-sektor_A1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/2024-11-12_report-99" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f06.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f07.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f08.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/facts/f09.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s1e4/Files from BanAN Technologies/weapons_tests.zip" afterDir="false" />
-    </list>
+    <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo" />
     <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
       <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/examples/websearch/main.py" afterDir="false" />
@@ -82,36 +53,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.api.executor": "Run",
-    "Python.index.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main (2).executor": "Run",
-    "Python.main (3).executor": "Run",
-    "Python.main (4).executor": "Run",
-    "Python.main (5).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.main_short.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jakubpruszynski/PycharmProjects/aidevs3/s1e4",
-    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.index.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (3).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (4).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (5).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_short.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jakubpruszynski/PycharmProjects/aidevs3/s1e4&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/s1e4" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/s2e2/images" />
       <recent name="$PROJECT_DIR$/s2e1/recordings" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/s1e2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (5)">
-    <configuration name="main (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main (1)">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,11 +92,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s1e3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/s2e2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s1e3/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/s2e2/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -223,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.main (5)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.main (4)" />
         <item itemvalue="Python.main (3)" />
-        <item itemvalue="Python.main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -441,7 +413,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731342458994</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add files from s1e4 to repo">
+      <option name="closed" value="true" />
+      <created>1731356442295</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1731356442295</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add map fragments to repo">
+      <option name="closed" value="true" />
+      <created>1731397052828</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1731397052828</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -457,7 +445,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="git init" />
     <MESSAGE value="create gitignore with rule for .env" />
     <MESSAGE value="Resolve poligon task" />
     <MESSAGE value="Remove redundant import" />
@@ -481,7 +468,9 @@
     <MESSAGE value="Add recordings to s2e1" />
     <MESSAGE value="Add method transcribe to OpenAiService" />
     <MESSAGE value="Implement s2e1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement s2e1" />
+    <MESSAGE value="Add files from s1e4 to repo" />
+    <MESSAGE value="Add map fragments to repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add map fragments to repo" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
