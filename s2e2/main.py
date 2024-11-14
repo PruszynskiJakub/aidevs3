@@ -1,30 +1,8 @@
 import asyncio
-import base64
-from pathlib import Path
 
-from PIL import Image
-
-from services import OpenAiService
+from services import OpenAiService, list_files, resize_image, encode_image
 
 service = OpenAiService()
-
-
-def encode_image(image_path: str) -> str:
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode("utf-8")
-
-
-def list_files(directory: str):
-    return [f.name for f in Path(directory).iterdir() if f.is_file()]
-
-
-def resize_image(image_path: str, size) -> str:
-    with Image.open(image_path) as img:
-        img.thumbnail(size)
-        resized_path = f"resized_{Path(image_path).name}"
-        img.save(resized_path)
-        return resized_path
-
 
 async def main():
     messages = [

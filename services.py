@@ -1,12 +1,31 @@
+import base64
 from collections.abc import AsyncIterable
+from pathlib import Path
 
 import tiktoken
+from PIL import Image
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from openai.types.chat import ChatCompletion, ChatCompletionMessage, ChatCompletionChunk, ChatCompletionMessageParam
 
 load_dotenv()
 
+
+def encode_image(image_path: str) -> str:
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
+
+
+def list_files(directory: str):
+    return [f.name for f in Path(directory).iterdir() if f.is_file()]
+
+
+def resize_image(image_path: str, size) -> str:
+    with Image.open(image_path) as img:
+        img.thumbnail(size)
+        resized_path = f"resized_{Path(image_path).name}"
+        img.save(resized_path)
+        return resized_path
 
 class OpenAiService:
     _client = AsyncOpenAI()

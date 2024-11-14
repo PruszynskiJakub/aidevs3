@@ -1,8 +1,7 @@
 import asyncio
-from pathlib import Path
 
 import api
-from services import OpenAiService
+from services import OpenAiService, list_files
 
 service = OpenAiService()
 
@@ -25,11 +24,6 @@ async def process_audio(audio_file: str):
         stream=False
     )
     return completion.choices[0].message.content
-
-
-def list_files(directory: str):
-    return [f.name for f in Path(directory).iterdir() if f.is_file()]
-
 
 async def main():
     files = list_files('recordings')
