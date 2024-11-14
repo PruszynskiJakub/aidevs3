@@ -57,3 +57,6 @@ class OpenAiService:
         except Exception as e:
             print(f"Error: {e}")
             raise e
+
+    async def describe_image(self, base64_image: str):
+        pass
