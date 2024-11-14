@@ -43,3 +43,17 @@ class OpenAiService:
         except Exception as e:
             print(f"Error: {e}")
             raise e
+
+    async def image(self, prompt: str):
+        try:
+            response = await self._client.images.generate(
+                prompt=prompt,
+                model="dall-e-3",
+                n=1,
+                size='1024x1024',
+                quality='standard'
+            )
+            return response.data[0].url
+        except Exception as e:
+            print(f"Error: {e}")
+            raise e
