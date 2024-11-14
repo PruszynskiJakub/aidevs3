@@ -44,7 +44,7 @@ class OpenAiService:
             print(f"Error: {e}")
             raise e
 
-    async def image(self, prompt: str):
+    async def generate_image(self, prompt: str):
         try:
             response = await self._client.images.generate(
                 prompt=prompt,

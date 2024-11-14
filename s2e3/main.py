@@ -19,7 +19,7 @@ def download_file():
 
 async def main():
     data = download_file()
-    image = await service.image(data['description'])
+    image = await service.generate_image(data['description'])
     answer('robotid', image)
 
 
