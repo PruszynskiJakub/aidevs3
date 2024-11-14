@@ -4,7 +4,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from OpenAiService import OpenAiService
+from services import OpenAiService
 
 service = OpenAiService()
 

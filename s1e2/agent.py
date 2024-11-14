@@ -3,8 +3,8 @@ from typing import TypedDict, List, Any
 
 from openai.types.chat import ChatCompletionMessageParam
 
-from OpenAiService import OpenAiService
 from s1e2.agent_tools import tools
+from services import OpenAiService
 
 client = OpenAiService()
 

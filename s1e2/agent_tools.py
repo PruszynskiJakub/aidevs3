@@ -3,7 +3,7 @@ from typing import TypedDict
 
 import requests
 
-from OpenAiService import OpenAiService
+from services import OpenAiService
 
 
 class MakeApiCallParams(TypedDict):

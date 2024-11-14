@@ -3,8 +3,8 @@ import os
 
 import requests
 
-from OpenAiService import OpenAiService
 from api import answer
+from services import OpenAiService
 
 service = OpenAiService()
 key = os.getenv('AG3NTS_API_KEY')

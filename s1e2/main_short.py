@@ -3,7 +3,7 @@ import asyncio
 
 import requests
 
-from OpenAiService import OpenAiService
+from services import OpenAiService
 
 service = OpenAiService()
 

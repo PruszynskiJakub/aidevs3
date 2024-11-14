@@ -2,7 +2,7 @@ import asyncio
 from pathlib import Path
 
 import api
-from OpenAiService import OpenAiService
+from services import OpenAiService
 
 service = OpenAiService()
 

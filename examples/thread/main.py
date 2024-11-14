@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from openai.types.chat import ChatCompletionMessageParam
 
-from OpenAiService import OpenAiService
+from services import OpenAiService
 
 service = OpenAiService()
 app = Flask(__name__)

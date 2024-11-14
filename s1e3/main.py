@@ -6,7 +6,7 @@ import requests
 from dotenv import load_dotenv
 
 import api
-from OpenAiService import OpenAiService
+from services import OpenAiService
 
 load_dotenv()
 key = os.getenv('AG3NTS_API_KEY')
