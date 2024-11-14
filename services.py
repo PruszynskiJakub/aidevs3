@@ -6,7 +6,7 @@ import tiktoken
 from PIL import Image
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
-from openai.types.chat import ChatCompletion, ChatCompletionMessage, ChatCompletionChunk, ChatCompletionMessageParam
+from openai.types.chat import ChatCompletion, ChatCompletionChunk, ChatCompletionMessageParam
 
 load_dotenv()
 
@@ -27,11 +27,12 @@ def resize_image(image_path: str, size) -> str:
         img.save(resized_path)
         return resized_path
 
+
 class OpenAiService:
     _client = AsyncOpenAI()
     _encoding = tiktoken.model.encoding_for_model("gpt-4o")
 
-    async def completion(self, messages: [ChatCompletionMessage], model: str = 'gpt-4o',
+    async def completion(self, messages: [ChatCompletionMessageParam], model: str = 'gpt-4o',
                          stream: bool = False) -> ChatCompletion | AsyncIterable[ChatCompletionChunk]:
         try:
             return await self._client.chat.completions.create(
@@ -77,5 +78,29 @@ class OpenAiService:
             print(f"Error: {e}")
             raise e
 
-    async def describe_image(self, base64_image: str):
-        pass
+    async def extract_text_from_image(self, base64_image: str):
+        try:
+            response = await self.completion(
+                messages=[
+                    {
+                        'role': 'user',
+                        'content': [
+                            {
+                                'type': 'image_url',
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64_image}",
+                                    'detail': 'high'
+                                }
+                            },
+                            {
+                                'type': 'text',
+                                'text': 'Extract text from the image. Return only the text and nothing else.'
+                            }
+                        ]
+                    }
+                ]
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            print(f"Error: {e}")
+            raise e
