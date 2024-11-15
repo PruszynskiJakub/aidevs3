@@ -104,3 +104,14 @@ class OpenAiService:
         except Exception as e:
             print(f"Error: {e}")
             raise e
+
+    async def embedding(self, input: str, model: str = 'text-embedding-3-large'):
+        try:
+            response = await self._client.embeddings.create(
+                input=input,
+                model=model
+            )
+            return response.data[0].embedding
+        except Exception as e:
+            print(f"Error: {e}")
+            raise e
