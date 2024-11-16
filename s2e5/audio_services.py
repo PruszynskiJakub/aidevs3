@@ -65,9 +65,25 @@ async def process_audios(markdown):
         )
 
         # Transcribe audio
-        transcribe_result = await service.transcribe(
+        transcription = await service.transcribe(
             audio_file=f'recordings/{name}'
         )
+        # Translate transcription to Polish
+        translation_result = await service.completion(
+            messages=[
+                {
+                    'role': 'user',
+                    'content': f'''Translate the following text to Polish:
+                    
+                    {transcription}
+                    
+                    Return only the translated text without any additional formatting or annotations.'''
+                }
+            ]
+        )
+        transcribe_result = translation_result.choices[0].message.content
+
+
         audio_obj['transcript'] = transcribe_result
 
         # Contextualize audio
@@ -83,7 +99,7 @@ async def process_audios(markdown):
                             Return the result in JSON object with only "name" and "context" properties.
                             {{
                             "name": "{name}",
-                            "context": "Contextual description of the audio based on the surrounding paragraphs. 1-3 sentences long."
+                            "context": "Contextual description of the audio based on the surrounding paragraphs and transcription. 1-3 sentences long.In Polish."
                             }}
 
                             SKIP any other formatting or markdown annotations.
@@ -95,6 +111,10 @@ async def process_audios(markdown):
                             <succeeding>
                             {succeeding}
                             </succeeding>
+
+                            <transcription>
+                            {transcribe_result}
+                            </transcription>
 
                             Skip any other formatting or markdown annotations, return only JSON object.
                             The JSON object MUST be valid and contain the "name" and "context" properties.

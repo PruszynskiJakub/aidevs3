@@ -76,14 +76,24 @@ async def process_images(markdown):
                         {
                             'type': 'text',
                             'text': f'''Describe the image ${name} concisely. 
-                            Focus on the main elements and overall composition. 
-                            Return the result in JSON format with only "name" and "preview" properties. 
-                            Skip any other formatting or markdown annotations, return only JSON.'''
+                            Focus on the main elements and overall composition. Identify the key details, to be everyone could imagine the image just be reading the description.
+                            Return the result in JSON format with only "name" and "preview" properties in Polish. 
+                            {{
+                            "name": "{name}",
+                            "preview": " 1-3 sentences long description with all key details in Polish."
+                            }}
+                            
+                            Skip any other formatting or markdown annotations, return only JSON.
+                            NO Additional formatting or annotations are allowed.
+
+                            '''
                         }
                     ]
                 }
             ]
         )
+        print(describe_result.choices[0].message.content)
+
         describe_json = json.loads(describe_result.choices[0].message.content)
         image_obj['desc'] = describe_json['preview'] or ''
 
@@ -100,7 +110,7 @@ async def process_images(markdown):
                             Return the result in JSON object with only "name" and "context" properties.
                             {{
                             "name": "{name}",
-                            "context": "Contextual description of the image based on the surrounding paragraphs. 1-3 sentences long."
+                            "context": "Contextual description of the image based on the surrounding paragraphs and image preview. 1-3 sentences long. in Polish."
                             }}
 
                             SKIP any other formatting or markdown annotations.
@@ -112,9 +122,14 @@ async def process_images(markdown):
                             <succeeding>
                             {succeeding}
                             </succeeding>
+                            
+                            <preview>
+                            {image_obj['desc']}
+                            </preview>
+                            
 
                             Skip any other formatting or markdown annotations, return only JSON object.
-                            The JSON object MUST be valid and contain the "name" and "context" properties.
+                            The JSON object MUST be valid and contain the "name" and "context" properties in Polish.
                             '''
                         }
                     ]

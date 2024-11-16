@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Implement s2e4">
-      <change afterPath="$PROJECT_DIR$/s2e5/audio_services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s2e5/images_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s2e5/qdrant_service.py" afterDir="false" />
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="implement s2e5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/services.py" afterDir="false" />
     </list>
     <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo" />
     <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
@@ -56,24 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.api.executor": "Run",
-    "Python.index.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main (2).executor": "Run",
-    "Python.main (3).executor": "Run",
-    "Python.main (4).executor": "Run",
-    "Python.main (5).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.main_short.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jakubpruszynski/PycharmProjects/aidevs3/s2e4/files",
-    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.index.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (3).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (4).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (5).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_short.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jakubpruszynski/PycharmProjects/aidevs3/s2e4/files&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/s2e4/files" />
@@ -499,7 +495,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731596404867</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="implement s2e5">
+      <option name="closed" value="true" />
+      <created>1731688130979</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1731688130979</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -515,7 +519,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Move service" />
     <MESSAGE value="Create dummy solution to complete the task" />
     <MESSAGE value="import fix" />
     <MESSAGE value="Extract url" />
@@ -540,7 +543,8 @@
     <MESSAGE value="Rename file" />
     <MESSAGE value="Extract common methods" />
     <MESSAGE value="Implement s2e4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement s2e4" />
+    <MESSAGE value="implement s2e5" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement s2e5" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
