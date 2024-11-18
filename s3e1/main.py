@@ -54,6 +54,10 @@ async def situate_chunk(
                 {facts}
                 </facts>
 
+                <chunk_filename>
+                {report_file_name}
+                </chunk_filename>
+
                 <chunk>
                 {chunk_content}
                 </chunk>
