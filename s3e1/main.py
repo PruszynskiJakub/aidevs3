@@ -5,7 +5,7 @@ from services import OpenAiService, list_files, build_report, describe_report
 
 service = OpenAiService()
 
-def main():
+async def main():
     print("Hello from s3e1!")
     
     # Iterate over .txt files in the 'files' directory and build a JSON object
