@@ -2,6 +2,7 @@ import asyncio
 import json
 
 from services import OpenAiService, list_files
+from api import answer
 
 service = OpenAiService()
 
@@ -104,6 +105,7 @@ async def main():
                 keywords_dict[file_name] = keywords
 
     print("Keywords JSON:\n", json.dumps(keywords_dict, indent=2))
+    answer("keywords_extraction", keywords_dict)
 
 
 if __name__ == "__main__":
