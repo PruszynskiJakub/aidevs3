@@ -6,6 +6,10 @@ service = OpenAiService()
 
 def main():
     print("Hello from s3e1!")
+    
+    # List files from the 'files' directory
+    files = list_files('files')
+    print("Files in 'files' directory:", files)
 
 if __name__ == "__main__":
     main()
