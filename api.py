@@ -25,4 +25,4 @@ def answer(task: str, response: Any):
         print("The answer is correct")
         print(f"Message: {json_result}")
     else:
-        print(f'The answer is incorrect.\nReason: {json_result['message']}')
+        print(f"The answer is incorrect.\nReason: {json_result['message']}")
