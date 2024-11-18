@@ -17,6 +17,17 @@ def main():
     
 import os
 
+def build_report() -> str:
+    """Builds a report by combining content from .txt files in the 'files' directory."""
+    files = list_files('files')
+    report_content = []
+    for file_name in files:
+        if file_name.endswith('.txt'):
+            with open(f'files/{file_name}', 'r') as file:
+                content = file.read().strip()
+                report_content.append(f"<{file_name}>{content}</{file_name}>")
+    return "\n".join(report_content)
+
 def build_knowledge() -> str:
 
     """Builds a knowledge base by combining facts from the 'files/facts' directory."""
