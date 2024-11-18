@@ -29,6 +29,16 @@ def build_report() -> str:
     return "\n".join(report_content)
 
 def build_knowledge() -> str:
+    """Builds a knowledge base by combining facts from the 'files/facts' directory."""
+    facts = list_files('files/facts')
+    combined_facts = []
+    for fact_file in facts:
+        with open(f'files/facts/{fact_file}', 'r') as file:
+            content = file.read().strip()
+            if content != "entry deleted":
+                combined_facts.append(content)
+    return "\n".join(combined_facts)
+
 def situate_chunk(report_file_name: str, full_report: str, facts: str) -> str:
     """Situates a chunk of the report within the context of the full report and facts."""
     with open(f'files/{report_file_name}', 'r') as file:
