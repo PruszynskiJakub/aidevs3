@@ -85,5 +85,6 @@ async def describe_report(report_file_name: str, chunk_content: str, full_report
     {chunk_content}
     </report>
 
-    Ensure the keywords are relevant and capture the essence of the content provided.'''
+    Ensure the keywords are relevant and capture the essence of the content provided. 
+    The keywords must be nominatives in a single form. Generate between 5 and 10 keywords.'''
     pass
