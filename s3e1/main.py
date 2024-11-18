@@ -12,6 +12,7 @@ service = OpenAiService()
 
 import services
 from services import encode_image
+from services import encode_image
 
 async def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
