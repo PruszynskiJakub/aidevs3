@@ -17,13 +17,6 @@ def main():
     
 import os
 
-async def process_single_report(report_name: str) -> str:
-    """Returns the content of a single report from the 'files' directory."""
-    report_path = os.path.join('files', report_name)
-    if os.path.isfile(report_path):
-        with open(report_path, 'r') as file:
-            return file.read()
-    return ""
     """Builds a knowledge base by combining facts from the 'files/facts' directory."""
     facts = list_files('files/facts')
     combined_facts = []
