@@ -44,6 +44,7 @@ def situate_chunk(report_file_name: str, full_report: str, facts: str) -> str:
     prompt = ""
     with open(f'files/{report_file_name}', 'r') as file:
         chunk_content = file.read().strip()
+    prompt = f"Chunk Content: {chunk_content}"
     pass
 
 if __name__ == "__main__":
