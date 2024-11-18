@@ -1,32 +1,9 @@
 import asyncio
 import json
+
 from services import OpenAiService, list_files
 
 service = OpenAiService()
-
-async def main():
-    print("Hello from s3e1!")
-    
-    # Build the full report and knowledge base before processing files
-    full_report = build_report()
-    facts = build_knowledge()
-
-    # Iterate over .txt files in the 'files' directory and build a JSON object
-    files = list_files('files')
-    keywords_dict = {}
-
-    for file_name in files:
-        if file_name.endswith('.txt'):
-            with open(f'files/{file_name}', 'r') as file:
-                chunk_content = file.read().strip()
-                keywords = await describe_report(file_name, chunk_content, full_report, facts)
-                keywords_dict[file_name] = keywords
-
-    print("Keywords JSON:\n", json.dumps(keywords_dict, indent=2))
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
 
 def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
@@ -106,3 +83,28 @@ async def describe_report(report_file_name: str, chunk_content: str, full_report
         }]
     )
     return response.choices[0].message.content
+
+
+async def main():
+    print("Hello from s3e1!")
+
+    # Build the full report and knowledge base before processing files
+    full_report = build_report()
+    facts = build_knowledge()
+
+    # Iterate over .txt files in the 'files' directory and build a JSON object
+    files = list_files('files')
+    keywords_dict = {}
+
+    for file_name in files:
+        if file_name.endswith('.txt'):
+            with open(f'files/{file_name}', 'r') as file:
+                chunk_content = file.read().strip()
+                keywords = await describe_report(file_name, chunk_content, full_report, facts)
+                keywords_dict[file_name] = keywords
+
+    print("Keywords JSON:\n", json.dumps(keywords_dict, indent=2))
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

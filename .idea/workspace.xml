@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Commit nmiissing files">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3e1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/s3e1/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="commit" />
     <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo" />
     <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
       <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
@@ -521,7 +517,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731842396965</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add files">
+      <option name="closed" value="true" />
+      <created>1731926918640</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1731926918640</updated>
+    </task>
+    <task id="LOCAL-00039" summary="commit">
+      <option name="closed" value="true" />
+      <created>1731926925203</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1731926925203</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,8 +549,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Extract url" />
-    <MESSAGE value="Implement more agentic approach to solve the riddle" />
     <MESSAGE value="Breaking a bit the agent" />
     <MESSAGE value="Implement s1e3" />
     <MESSAGE value="Print json" />
@@ -562,7 +572,9 @@
     <MESSAGE value="implement s2e5" />
     <MESSAGE value="Use in memory vector store instead of qdrant" />
     <MESSAGE value="Commit nmiissing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit nmiissing files" />
+    <MESSAGE value="add files" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
