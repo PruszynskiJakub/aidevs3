@@ -11,9 +11,18 @@ def main():
     files = list_files('files')
     print("Files in 'files' directory:", files)
     
-    # List files from the 'files/facts' directory
+    # Build knowledge from facts
+    knowledge = build_knowledge()
+    print("Combined knowledge from facts:\n", knowledge)
+    
+def build_knowledge() -> str:
+    """Builds a knowledge base by combining facts from the 'files/facts' directory."""
     facts = list_files('files/facts')
-    print("Files in 'files/facts' directory:", facts)
+    combined_facts = []
+    for fact_file in facts:
+        with open(f'files/facts/{fact_file}', 'r') as file:
+            combined_facts.append(file.read().strip())
+    return "\n".join(combined_facts)
 
 if __name__ == "__main__":
     main()
