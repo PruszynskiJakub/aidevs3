@@ -140,14 +140,11 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
-def transcribe_mp3(mp3_file: str) -> str:
-    """Transcribes an mp3 file to text using speech_recognition"""
-    r = sr.Recognizer()
-    with sr.AudioFile(mp3_file) as source:
-        audio = r.record(source)
+async def transcribe_mp3(mp3_file: str) -> str:
+    """Transcribes an mp3 file to text using the service's transcribe method"""
     try:
-        text = r.recognize_google(audio)
-        return text
-    except sr.UnknownValueError:
-        print(f"Could not transcribe audio from {mp3_file}")
+        transcription = await service.transcribe(mp3_file)
+        return transcription
+    except Exception as e:
+        print(f"Could not transcribe audio from {mp3_file}: {e}")
         return ""
