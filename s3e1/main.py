@@ -1,12 +1,11 @@
 import asyncio
 import json
-import os
-from typing import List
 
 from api import answer
 from services import OpenAiService, list_files, encode_image
 
 service = OpenAiService()
+
 
 async def transcribe_mp3(mp3_file: str) -> str:
     """Transcribes an mp3 file to text using the service's transcribe method"""
@@ -17,26 +16,28 @@ async def transcribe_mp3(mp3_file: str) -> str:
         print(f"Could not transcribe audio from {mp3_file}: {e}")
         return ""
 
+
 async def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
     txt_files = [f for f in list_files('files') if f.endswith('.txt')]
     mp3_files = [f for f in list_files('files') if f.endswith('.mp3')]
     png_files = [f for f in list_files('files') if f.endswith('.png')]
-    
+
     report_content = []
     for file_name in txt_files:
         with open(f'files/{file_name}', 'r') as file:
             content = file.read().strip()
             report_content.append(f"<{file_name}>{content}</{file_name}>")
-            
+
     for file_name in mp3_files:
-        transcription = transcribe_mp3(f'files/{file_name}')
+        transcription = await transcribe_mp3(f'files/{file_name}')
         report_content.append(f"<{file_name}>{transcription}</{file_name}>")
-        
+
     for file_name in png_files:
         image_text = await service.extract_text_from_image(encode_image(f'files/{file_name}'))
         report_content.append(f"<{file_name}>{image_text}</{file_name}>")
     return "\n".join(report_content)
+
 
 def build_knowledge() -> str:
     """Builds a knowledge base by combining facts from the 'files/facts' directory."""
@@ -49,11 +50,12 @@ def build_knowledge() -> str:
                 combined_facts.append(content)
     return "\n".join(combined_facts)
 
+
 async def situate_chunk(
-    report_file_name: str, 
-    chunk_content: str, 
-    full_report: str, 
-    facts: str
+        report_file_name: str,
+        chunk_content: str,
+        full_report: str,
+        facts: str
 ) -> str:
     """Situates a chunk of the report within the context of the full report and facts."""
 
@@ -74,6 +76,7 @@ async def situate_chunk(
                 </chunk>
 
                 Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. 
+                Identify key events, characters, and locations mentioned in the chunk related to the overall document and facts.
                 Answer only with the succinct context and nothing else. Put extra attention to key events, characters, and locations mentioned in the chunk.'''
     response = await service.completion(
         messages=[{
@@ -83,6 +86,7 @@ async def situate_chunk(
         model="gpt-4o-mini"
     )
     return response.choices[0].message.content
+
 
 async def describe_report(report_file_name: str, chunk_content: str, full_report: str, facts: str) -> str:
     """Describes a report by situating its content within the context of the provided full report and facts."""
@@ -97,14 +101,19 @@ async def describe_report(report_file_name: str, chunk_content: str, full_report
     <facts>
     {facts}
     </facts>
+    
+    <filename>
+    {report_file_name}
+    </filename>
 
     <report>
     {chunk_content}
     </report>
 
     Ensure the keywords are relevant and capture the essence of the content provided.
-    The keywords must be polish nominatives in a single form, unique and descriptive.
-    Generate between 20 and 30 separated by commas, with no additional formatting. 
+    The keywords must be nominatives representing things, living beings, concepts, ideas, roles in a single form, unique and descriptive.
+    The first keyword is always a sector included in the filename.
+    Generate between 10 to 15 keywords separated by commas, with no additional formatting. 
     Double check the proper response format before submitting.'''
 
     response = await service.completion(
@@ -124,7 +133,7 @@ async def main():
     print("Hello from s3e1!")
 
     # Build the full report and knowledge base before processing files
-    full_report = build_report()
+    full_report = await build_report()
     facts = build_knowledge()
 
     # Iterate over .txt files in the 'files' directory and build a JSON object
@@ -135,22 +144,23 @@ async def main():
             with open(f'files/{file_name}', 'r') as file:
                 chunk_content = file.read().strip()
             keywords = await describe_report(file_name, chunk_content, full_report, facts)
+            # keywords += ',nauczyciel, zwierzę, javascript, programmer, C4'
             return file_name, keywords
-        elif file_name.endswith('.mp3'):
-            chunk_content = await transcribe_mp3(f'files/{file_name}')
-            keywords = await describe_report(file_name, chunk_content, full_report, facts)
-            return file_name, keywords
-        elif file_name.endswith('.png'):
-            chunk_content = await service.extract_text_from_image(encode_image(f'files/{file_name}'))
-            keywords = await describe_report(file_name, chunk_content, full_report, facts)
-            return file_name, keywords
+        # elif file_name.endswith('.mp3'):
+        #     chunk_content = await transcribe_mp3(f'files/{file_name}')
+        #     keywords = await describe_report(file_name, chunk_content, full_report, facts)
+        #     return file_name, keywords
+        # elif file_name.endswith('.png'):
+        #     chunk_content = await service.extract_text_from_image(encode_image(f'files/{file_name}'))
+        #     keywords = await describe_report(file_name, chunk_content, full_report, facts)
+        #     return file_name, keywords
         else:
             return None, None
 
     # Process files concurrently
     tasks = [process_file(file_name) for file_name in files]
     results = await asyncio.gather(*tasks)
-    
+
     # Filter out None results and build dictionary
     keywords_dict = {file_name: keywords for file_name, keywords in results if file_name is not None}
 
