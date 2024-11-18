@@ -48,14 +48,19 @@ def situate_chunk(
     with open(f'files/{report_file_name}', 'r') as file:
         chunk_content = file.read().strip()
 
-    prompt = (
-        f"<document>\n{full_report}\n</document>\n\n"
-        f"<facts>\n{facts}\n</facts>\n\n"
-        f"<chunk>\n{chunk_content}\n</chunk>\n\n"
-        "Please give a short succinct context to situate this chunk within the overall document "
-        "for the purposes of improving search retrieval of the chunk. Answer only with the succinct "
-        "context and nothing else."
-    )
+    prompt = f'''<document>
+{full_report}
+</document>
+
+<facts>
+{facts}
+</facts>
+
+<chunk>
+{chunk_content}
+</chunk>
+
+Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Answer only with the succinct context and nothing else.'''
     return prompt
 
 if __name__ == "__main__":
