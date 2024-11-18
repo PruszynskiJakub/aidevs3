@@ -22,6 +22,9 @@ async def main():
 
     print("Keywords JSON:\n", json.dumps(keywords_dict, indent=2))
 
+if __name__ == "__main__":
+    asyncio.run(main())
+
 
 def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
