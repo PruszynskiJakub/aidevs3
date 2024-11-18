@@ -21,7 +21,9 @@ def build_knowledge() -> str:
     combined_facts = []
     for fact_file in facts:
         with open(f'files/facts/{fact_file}', 'r') as file:
-            combined_facts.append(file.read().strip())
+            content = file.read().strip()
+            if content != "entry deleted":
+                combined_facts.append(content)
     return "\n".join(combined_facts)
 
 if __name__ == "__main__":
