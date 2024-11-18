@@ -1,19 +1,27 @@
 # This is the main entry point for the s3e1 module.
 
-from services import OpenAiService, list_files
+import json
+from services import OpenAiService, list_files, build_report, describe_report
 
 service = OpenAiService()
 
 def main():
     print("Hello from s3e1!")
     
-    # Build report from .txt files in the 'files' directory
-    report = build_report()
-    print("Report from .txt files:\n", report)
-    
-    # Build knowledge from facts
-    knowledge = build_knowledge()
-    print("Combined knowledge from facts:\n", knowledge)
+    # Iterate over .txt files in the 'files' directory and build a JSON object
+    files = list_files('files')
+    keywords_dict = {}
+
+    for file_name in files:
+        if file_name.endswith('.txt'):
+            with open(f'files/{file_name}', 'r') as file:
+                chunk_content = file.read().strip()
+                full_report = build_report()
+                facts = build_knowledge()
+                keywords = await describe_report(file_name, chunk_content, full_report, facts)
+                keywords_dict[file_name] = keywords
+
+    print("Keywords JSON:\n", json.dumps(keywords_dict, indent=2))
 
 
 def build_report() -> str:
