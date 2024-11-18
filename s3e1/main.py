@@ -41,17 +41,8 @@ def build_knowledge() -> str:
 
 def situate_chunk(report_file_name: str, full_report: str, facts: str) -> str:
     """Situates a chunk of the report within the context of the full report and facts."""
-    with open(f'files/{report_file_name}', 'r') as file:
-        report_content = file.read().strip()
-    return f"<report>{report_content}</report>\n<full_report>{full_report}</full_report>\n<facts>{facts}</facts>"
-    facts = list_files('files/facts')
-    combined_facts = []
-    for fact_file in facts:
-        with open(f'files/facts/{fact_file}', 'r') as file:
-            content = file.read().strip()
-            if content != "entry deleted":
-                combined_facts.append(content)
-    return "\n".join(combined_facts)
+    prompt = ""
+    pass
 
 if __name__ == "__main__":
     main()
