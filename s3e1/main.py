@@ -38,7 +38,7 @@ def build_knowledge() -> str:
                 combined_facts.append(content)
     return "\n".join(combined_facts)
 
-def situate_chunk(
+async def situate_chunk(
     report_file_name: str, 
     full_report: str, 
     facts: str
@@ -61,7 +61,13 @@ def situate_chunk(
 
                 Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. 
                 Answer only with the succinct context and nothing else.'''
-    return prompt
+    response = await service.completion(
+        messages=[{
+            'role': 'system',
+            'content': prompt
+        }]
+    )
+    return response.choices[0].message.content
 
 if __name__ == "__main__":
     main()
