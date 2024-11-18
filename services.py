@@ -32,8 +32,12 @@ class OpenAiService:
     _client = AsyncOpenAI()
     _encoding = tiktoken.model.encoding_for_model("gpt-4o")
 
-    async def completion(self, messages: [ChatCompletionMessageParam], model: str = 'gpt-4o',
-                         stream: bool = False) -> ChatCompletion | AsyncIterable[ChatCompletionChunk]:
+    async def completion(
+        self, 
+        messages: [ChatCompletionMessageParam], 
+        model: str = 'gpt-4o',
+        stream: bool = False
+    ) -> ChatCompletion | AsyncIterable[ChatCompletionChunk]:
         try:
             return await self._client.chat.completions.create(
                 model=model,
@@ -52,7 +56,11 @@ class OpenAiService:
             tokens += self._encoding.encode(message.__str__())
         return len(tokens)
 
-    async def transcribe(self, audio_file: str, prompt: str = '') -> str:
+    async def transcribe(
+        self, 
+        audio_file: str, 
+        prompt: str = ''
+    ) -> str:
         try:
             transcription = await self._client.audio.transcriptions.create(
                 file=open(audio_file, 'rb'),
@@ -64,7 +72,10 @@ class OpenAiService:
             print(f"Error: {e}")
             raise e
 
-    async def generate_image(self, prompt: str):
+    async def generate_image(
+        self, 
+        prompt: str
+    ):
         try:
             response = await self._client.images.generate(
                 prompt=prompt,
@@ -78,7 +89,10 @@ class OpenAiService:
             print(f"Error: {e}")
             raise e
 
-    async def extract_text_from_image(self, base64_image: str):
+    async def extract_text_from_image(
+        self, 
+        base64_image: str
+    ):
         try:
             response = await self.completion(
                 messages=[
@@ -105,7 +119,11 @@ class OpenAiService:
             print(f"Error: {e}")
             raise e
 
-    async def embedding(self, input: str, model: str = 'text-embedding-3-large'):
+    async def embedding(
+        self, 
+        input: str, 
+        model: str = 'text-embedding-3-large'
+    ):
         try:
             response = await self._client.embeddings.create(
                 input=input,

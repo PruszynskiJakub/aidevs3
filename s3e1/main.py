@@ -39,24 +39,23 @@ def build_knowledge() -> str:
                 combined_facts.append(content)
     return "\n".join(combined_facts)
 
-def situate_chunk(report_file_name: str, full_report: str, facts: str) -> str:
+def situate_chunk(
+    report_file_name: str, 
+    full_report: str, 
+    facts: str
+) -> str:
     """Situates a chunk of the report within the context of the full report and facts."""
     with open(f'files/{report_file_name}', 'r') as file:
         chunk_content = file.read().strip()
-    
-    prompt = f"""<document>
-{full_report}
-</document>
 
-<facts>
-{facts}
-</facts>
-
-<chunk>
-{chunk_content}
-</chunk>
-
-Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Answer only with the succinct context and nothing else."""
+    prompt = (
+        f"<document>\n{full_report}\n</document>\n\n"
+        f"<facts>\n{facts}\n</facts>\n\n"
+        f"<chunk>\n{chunk_content}\n</chunk>\n\n"
+        "Please give a short succinct context to situate this chunk within the overall document "
+        "for the purposes of improving search retrieval of the chunk. Answer only with the succinct "
+        "context and nothing else."
+    )
     return prompt
 
 if __name__ == "__main__":
