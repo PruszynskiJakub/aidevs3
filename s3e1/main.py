@@ -75,4 +75,4 @@ async def situate_chunk(
 async def describe_report(report_file_name: str, chunk_content: str, full_report: str, facts: str) -> str:
     """Describes a report by situating its content within the context of the provided full report and facts."""
     context = await situate_chunk(report_file_name, chunk_content, full_report, facts)
-    return context
+    pass
