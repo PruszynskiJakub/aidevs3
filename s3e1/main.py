@@ -75,13 +75,10 @@ async def describe_report(report_file_name: str, chunk_content: str, full_report
     {chunk_content}
     </report>
 
-    Take a deep breath, identify key information from the context and report, and put your inner thoughts in the following block:
-
-    <_thinking>
-    </_thinking>
+    Take a deep breath, identify key information from the context and report, and put your inner thoughts in the following <_thinking> block.
 
     Ensure the keywords are relevant and capture the essence of the content provided. 
-    The keywords must be polish nominatives in a single form. Generate at least 10 keywords, separated by commas, with no additional formatting.'''
+    The keywords must be polish nominatives in a single form. Generate at least 10 keywords, separated by commas, with no additional formatting. Put the keywords in the following <keywords> block.'''
     response = await service.completion(
         messages=[{
             'role': 'system',

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Fix method order" />
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Fix task name">
+      <change beforePath="$PROJECT_DIR$/s3e1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/s3e1/main.py" afterDir="false" />
+    </list>
     <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo" />
     <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
       <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
@@ -541,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731929481301</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Fix task name">
+      <option name="closed" value="true" />
+      <created>1731929621365</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1731929621365</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -557,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Implement s1e3" />
     <MESSAGE value="Print json" />
     <MESSAGE value="Add counting tokens" />
     <MESSAGE value="Add prompt for s1e4" />
@@ -582,7 +591,8 @@
     <MESSAGE value="add files" />
     <MESSAGE value="commit" />
     <MESSAGE value="Fix method order" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix method order" />
+    <MESSAGE value="Fix task name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix task name" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
