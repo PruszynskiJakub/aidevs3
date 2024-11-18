@@ -27,7 +27,8 @@ def build_report() -> str:
         report_content.append(f"<{file_name}>{transcription}</{file_name}>")
         
     for file_name in png_files:
-        report_content.append(f"<{file_name}>PNG_FILE</{file_name}>")
+        image_text = await service.extract_text_from_image(encode_image(f'files/{file_name}'))
+        report_content.append(f"<{file_name}>{image_text}</{file_name}>")
     return "\n".join(report_content)
 
 def build_knowledge() -> str:
