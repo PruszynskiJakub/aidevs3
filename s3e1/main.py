@@ -17,6 +17,8 @@ def main():
     
 import os
 
+def build_knowledge() -> str:
+
     """Builds a knowledge base by combining facts from the 'files/facts' directory."""
     facts = list_files('files/facts')
     combined_facts = []
