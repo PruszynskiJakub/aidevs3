@@ -40,12 +40,11 @@ def build_knowledge() -> str:
 
 async def situate_chunk(
     report_file_name: str, 
+    chunk_content: str, 
     full_report: str, 
     facts: str
 ) -> str:
     """Situates a chunk of the report within the context of the full report and facts."""
-    with open(f'files/{report_file_name}', 'r') as file:
-        chunk_content = file.read().strip()
 
     prompt = f'''<document>
                 {full_report}
