@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="commit" />
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Fix method order" />
     <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo" />
     <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
       <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
@@ -533,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731926925203</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fix method order">
+      <option name="closed" value="true" />
+      <created>1731929481301</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1731929481301</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -549,7 +557,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Breaking a bit the agent" />
     <MESSAGE value="Implement s1e3" />
     <MESSAGE value="Print json" />
     <MESSAGE value="Add counting tokens" />
@@ -574,7 +581,8 @@
     <MESSAGE value="Commit nmiissing files" />
     <MESSAGE value="add files" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="Fix method order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix method order" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
