@@ -134,9 +134,18 @@ async def main():
         if file_name.endswith('.txt'):
             with open(f'files/{file_name}', 'r') as file:
                 chunk_content = file.read().strip()
-                keywords = await describe_report(file_name, chunk_content, full_report, facts)
-                return file_name, keywords
-        return None, None
+            keywords = await describe_report(file_name, chunk_content, full_report, facts)
+            return file_name, keywords
+        elif file_name.endswith('.mp3'):
+            chunk_content = await transcribe_mp3(f'files/{file_name}')
+            keywords = await describe_report(file_name, chunk_content, full_report, facts)
+            return file_name, keywords
+        elif file_name.endswith('.png'):
+            chunk_content = await service.extract_text_from_image(encode_image(f'files/{file_name}'))
+            keywords = await describe_report(file_name, chunk_content, full_report, facts)
+            return file_name, keywords
+        else:
+            return None, None
 
     # Process files concurrently
     tasks = [process_file(file_name) for file_name in files]
