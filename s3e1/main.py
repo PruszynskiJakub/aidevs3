@@ -1,6 +1,6 @@
 # This is the main entry point for the s3e1 module.
 
-from services import OpenAiService
+from services import OpenAiService, list_files
 
 service = OpenAiService()
 
