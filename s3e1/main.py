@@ -1,5 +1,9 @@
 import asyncio
 import json
+import os
+from typing import List
+
+import speech_recognition as sr
 
 from api import answer
 from services import OpenAiService, list_files
@@ -8,13 +12,18 @@ service = OpenAiService()
 
 def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
-    files = list_files('files')
+    txt_files = [f for f in list_files('files') if f.endswith('.txt')]
+    mp3_files = [f for f in list_files('files') if f.endswith('.mp3')]
+    
     report_content = []
-    for file_name in files:
-        if file_name.endswith('.txt'):
-            with open(f'files/{file_name}', 'r') as file:
-                content = file.read().strip()
-                report_content.append(f"<{file_name}>{content}</{file_name}>")
+    for file_name in txt_files:
+        with open(f'files/{file_name}', 'r') as file:
+            content = file.read().strip()
+            report_content.append(f"<{file_name}>{content}</{file_name}>")
+            
+    for file_name in mp3_files:
+        transcription = transcribe_mp3(f'files/{file_name}')
+        report_content.append(f"<{file_name}>{transcription}</{file_name}>")
     return "\n".join(report_content)
 
 def build_knowledge() -> str:
@@ -130,3 +139,15 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+def transcribe_mp3(mp3_file: str) -> str:
+    """Transcribes an mp3 file to text using speech_recognition"""
+    r = sr.Recognizer()
+    with sr.AudioFile(mp3_file) as source:
+        audio = r.record(source)
+    try:
+        text = r.recognize_google(audio)
+        return text
+    except sr.UnknownValueError:
+        print(f"Could not transcribe audio from {mp3_file}")
+        return ""
