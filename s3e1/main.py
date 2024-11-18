@@ -10,6 +10,10 @@ def main():
     # List files from the 'files' directory
     files = list_files('files')
     print("Files in 'files' directory:", files)
+    
+    # List files from the 'files/facts' directory
+    facts = list_files('files/facts')
+    print("Files in 'files/facts' directory:", facts)
 
 if __name__ == "__main__":
     main()
