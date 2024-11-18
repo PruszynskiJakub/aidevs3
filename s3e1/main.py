@@ -53,39 +53,50 @@ async def situate_chunk(
                 </chunk>
 
                 Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. 
-                Answer only with the succinct context and nothing else.'''
+                Answer only with the succinct context and nothing else. Put extra attention to key events, characters, and locations mentioned in the chunk.'''
     response = await service.completion(
         messages=[{
             'role': 'system',
             'content': prompt
-        }]
+        }],
+        model="gpt-4o-mini"
     )
     return response.choices[0].message.content
 
 async def describe_report(report_file_name: str, chunk_content: str, full_report: str, facts: str) -> str:
     """Describes a report by situating its content within the context of the provided full report and facts."""
     context = await situate_chunk(report_file_name, chunk_content, full_report, facts)
-    prompt = f'''Based on the following report and its context, generate a concise list of keywords that best represent the core topics and themes. 
+    prompt = f'''Based on the following report, facts and the context, generate a concise list of keywords that best represent the core topics and themes.
+    Take into account relation between facts and the report.
 
     <context>
     {context}
     </context>
+    
+    <facts>
+    {facts}
+    </facts>
 
     <report>
     {chunk_content}
     </report>
 
-    Take a deep breath, identify key information from the context and report, and put your inner thoughts in the following <_thinking> block.
+    Ensure the keywords are relevant and capture the essence of the content provided.
+    The keywords must be polish nominatives in a single form, unique and descriptive.
+    Generate between 20 and 30 separated by commas, with no additional formatting. 
+    Double check the proper response format before submitting.'''
 
-    Ensure the keywords are relevant and capture the essence of the content provided. 
-    The keywords must be polish nominatives in a single form. Generate at least 10 keywords, separated by commas, with no additional formatting. Put the keywords in the following <keywords> block.'''
     response = await service.completion(
         messages=[{
             'role': 'system',
             'content': prompt
-        }]
+        }],
+        model="gpt-4o-mini"
     )
     return response.choices[0].message.content
+    # if "<keywords>" not in content or "</keywords>" not in content:
+    #     raise ValueError("Keywords block not found in completion response")
+    # return content.split("<keywords>")[1].split("</keywords>")[0].strip()
 
 
 async def main():
@@ -97,14 +108,21 @@ async def main():
 
     # Iterate over .txt files in the 'files' directory and build a JSON object
     files = list_files('files')
-    keywords_dict = {}
 
-    for file_name in files:
+    async def process_file(file_name):
         if file_name.endswith('.txt'):
             with open(f'files/{file_name}', 'r') as file:
                 chunk_content = file.read().strip()
                 keywords = await describe_report(file_name, chunk_content, full_report, facts)
-                keywords_dict[file_name] = keywords
+                return file_name, keywords
+        return None, None
+
+    # Process files concurrently
+    tasks = [process_file(file_name) for file_name in files]
+    results = await asyncio.gather(*tasks)
+    
+    # Filter out None results and build dictionary
+    keywords_dict = {file_name: keywords for file_name, keywords in results if file_name is not None}
 
     print("Keywords JSON:\n", json.dumps(keywords_dict, indent=2))
     answer("dokumenty", keywords_dict)
