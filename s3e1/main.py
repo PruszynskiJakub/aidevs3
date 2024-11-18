@@ -14,8 +14,7 @@ def main():
     # Build knowledge from facts
     knowledge = build_knowledge()
     print("Combined knowledge from facts:\n", knowledge)
-    
-import os
+
 
 def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
@@ -49,18 +48,19 @@ def situate_chunk(
         chunk_content = file.read().strip()
 
     prompt = f'''<document>
-{full_report}
-</document>
+                {full_report}
+                </document>
 
-<facts>
-{facts}
-</facts>
+                <facts>
+                {facts}
+                </facts>
 
-<chunk>
-{chunk_content}
-</chunk>
+                <chunk>
+                {chunk_content}
+                </chunk>
 
-Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. Answer only with the succinct context and nothing else.'''
+                Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. 
+                Answer only with the succinct context and nothing else.'''
     return prompt
 
 if __name__ == "__main__":
