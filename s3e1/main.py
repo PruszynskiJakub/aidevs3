@@ -10,7 +10,10 @@ from services import OpenAiService, list_files
 
 service = OpenAiService()
 
-def build_report() -> str:
+import services
+from services import encode_image
+
+async def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
     txt_files = [f for f in list_files('files') if f.endswith('.txt')]
     mp3_files = [f for f in list_files('files') if f.endswith('.mp3')]
