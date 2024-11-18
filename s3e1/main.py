@@ -75,5 +75,15 @@ async def situate_chunk(
 async def describe_report(report_file_name: str, chunk_content: str, full_report: str, facts: str) -> str:
     """Describes a report by situating its content within the context of the provided full report and facts."""
     context = await situate_chunk(report_file_name, chunk_content, full_report, facts)
-    prompt = ''
+    prompt = f'''Based on the following report and its context, generate a concise list of keywords that best represent the core topics and themes. 
+
+    <context>
+    {context}
+    </context>
+
+    <report>
+    {chunk_content}
+    </report>
+
+    Ensure the keywords are relevant and capture the essence of the content provided.'''
     pass
