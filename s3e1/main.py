@@ -72,9 +72,7 @@ async def situate_chunk(
     )
     return response.choices[0].message.content
 
-async def describe_report(report_file_name: str) -> str:
-    """Describes a report by situating its content within the context of the full report and facts."""
-    full_report = build_report()
-    facts = build_knowledge()
+async def describe_report(report_file_name: str, full_report: str, facts: str) -> str:
+    """Describes a report by situating its content within the context of the provided full report and facts."""
     return await situate_chunk(report_file_name, full_report, facts)
     main()
