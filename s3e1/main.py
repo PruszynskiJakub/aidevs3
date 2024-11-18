@@ -1,8 +1,5 @@
 import asyncio
 
-import json
-from services import OpenAiService, list_files, build_report, describe_report
-
 service = OpenAiService()
 
 async def main():
