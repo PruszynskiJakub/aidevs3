@@ -14,6 +14,7 @@ def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
     txt_files = [f for f in list_files('files') if f.endswith('.txt')]
     mp3_files = [f for f in list_files('files') if f.endswith('.mp3')]
+    png_files = [f for f in list_files('files') if f.endswith('.png')]
     
     report_content = []
     for file_name in txt_files:
@@ -24,6 +25,9 @@ def build_report() -> str:
     for file_name in mp3_files:
         transcription = transcribe_mp3(f'files/{file_name}')
         report_content.append(f"<{file_name}>{transcription}</{file_name}>")
+        
+    for file_name in png_files:
+        report_content.append(f"<{file_name}>PNG_FILE</{file_name}>")
     return "\n".join(report_content)
 
 def build_knowledge() -> str:
