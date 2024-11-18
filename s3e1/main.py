@@ -10,7 +10,8 @@ from services import OpenAiService, list_files
 
 service = OpenAiService()
 
-from services import OpenAiService, encode_image, list_files
+import services
+from services import encode_image
 
 async def build_report() -> str:
     """Builds a report by combining content from .txt files in the 'files' directory."""
@@ -146,3 +147,12 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+async def transcribe_mp3(mp3_file: str) -> str:
+    """Transcribes an mp3 file to text using the service's transcribe method"""
+    try:
+        transcription = await service.transcribe(mp3_file)
+        return transcription
+    except Exception as e:
+        print(f"Could not transcribe audio from {mp3_file}: {e}")
+        return ""
