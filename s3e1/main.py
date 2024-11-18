@@ -7,6 +7,10 @@ service = OpenAiService()
 async def main():
     print("Hello from s3e1!")
     
+    # Build the full report and knowledge base before processing files
+    full_report = build_report()
+    facts = build_knowledge()
+
     # Iterate over .txt files in the 'files' directory and build a JSON object
     files = list_files('files')
     keywords_dict = {}
@@ -15,8 +19,6 @@ async def main():
         if file_name.endswith('.txt'):
             with open(f'files/{file_name}', 'r') as file:
                 chunk_content = file.read().strip()
-                full_report = build_report()
-                facts = build_knowledge()
                 keywords = await describe_report(file_name, chunk_content, full_report, facts)
                 keywords_dict[file_name] = keywords
 
