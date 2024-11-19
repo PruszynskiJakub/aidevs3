@@ -4,7 +4,7 @@ from services import list_files, OpenAiService
 from vector_store import index_chunk
 
 
-async def generate_keywords(content: str) -> dict:
+async def generate_keywords(content: str, filename: str) -> dict:
     openai_service = OpenAiService()
     prompt = [
         {"role": "system", "content": "Extract 5-10 key topics/keywords from the given text. Return them as a comma-separated list."},
@@ -25,7 +25,7 @@ async def main():
         file_path = Path("do-not-share") / filename
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()
-            metadata = await generate_keywords(content)
+            metadata = await generate_keywords(content, filename)
             index_chunk(content, metadata=metadata)
             print(f"Indexed with keywords: {filename}")
 
