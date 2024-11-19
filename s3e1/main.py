@@ -76,9 +76,16 @@ async def situate_chunk(
                 {chunk_content}
                 </chunk>
 
-                Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk. 
-                Identify key events, characters, and locations mentioned in the chunk related to the overall document and facts.
-                Answer only with the succinct context and nothing else. Put extra attention to key events, characters, and locations mentioned in the chunk.'''
+                Enhance the chunk by adding relevant contextual information from the document and facts. 
+                Focus on:
+                1. Adding missing background information that helps understand the chunk
+                2. Explaining relationships between entities mentioned in the chunk
+                3. Connecting events in the chunk to broader timeline/narrative
+                4. Clarifying any references or terminology
+                5. Including relevant facts that directly relate to the chunk content
+
+                Return the enhanced chunk that incorporates this context naturally into the text.
+                Maintain the original meaning while making it more informative and self-contained.'''
     response = await service.completion(
         messages=[{
             'role': 'system',
