@@ -118,10 +118,10 @@ async def main():
     query_metadata = await generate_metadata(query)
     query_keywords = set(query_metadata.get('keywords', []))
     
-    # Create filter function to match documents containing any of the query keywords
+    # Create filter function to check if doc keywords contain all query keywords
     def filter_func(doc):
         doc_keywords = set(doc.metadata.get('keywords', []))
-        return bool(query_keywords & doc_keywords)
+        return query_keywords.issubset(doc_keywords)
     
     results = search(query, filter_func=filter_func)
     print("\nSearch Results:")
