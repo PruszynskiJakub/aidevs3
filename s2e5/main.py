@@ -9,8 +9,8 @@ from langchain_text_splitters import MarkdownTextSplitter
 import api
 from s2e5.audio_services import process_audios
 from s2e5.images_service import process_images
-from s2e5.vector_store import search, index_image, index_audio, index_chunk
 from services import OpenAiService
+from vector_store import search, index_image, index_audio, index_chunk
 
 key = os.getenv("AG3NTS_API_KEY")
 base_url = os.getenv("AG3NTS_HQ_URL")
