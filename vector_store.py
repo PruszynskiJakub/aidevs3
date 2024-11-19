@@ -7,9 +7,9 @@ vector_store = InMemoryVectorStore(OpenAIEmbeddings())
 
 def index_image(image_data):
     document1 = Document(page_content=image_data["desc"], metadata={
-        "data": f'{image_data['desc']} - {image_data['name']} - {image_data['url']} - {image_data['context']}'})
+        "data": f"{image_data['desc']} - {image_data['name']} - {image_data['url']} - {image_data['context']}"})
     document2 = Document(page_content=image_data["context"], metadata={
-        "data": f'{image_data['desc']} - {image_data['name']} - {image_data['url']} - {image_data['context']}'})
+        "data": f"{image_data['desc']} - {image_data['name']} - {image_data['url']} - {image_data['context']}"})
     vector_store.add_documents([document1, document2])
 
 
