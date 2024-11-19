@@ -19,8 +19,8 @@ def index_audio(audio_data):
     vector_store.add_documents([document1, document2])
 
 
-def index_chunk(chunk_text):
-    document = Document(page_content=chunk_text, metadata={"data": chunk_text})
+def index_chunk(chunk_text, metadata={}):
+    document = Document(page_content=chunk_text, metadata={"data": chunk_text, **metadata})
     vector_store.add_documents([document])
 
 
