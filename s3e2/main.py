@@ -65,20 +65,22 @@ async def generate_keywords(content: str, filename: str) -> dict:
     keywords = json.loads(response.choices[0].message.content.strip())
     return {"filename": filename, **keywords}
 
+async def process_file(filename: str):
+    file_path = Path("do-not-share") / filename
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+        metadata = await generate_keywords(content, filename)
+        print(metadata)
+        index_chunk(content, metadata=metadata)
+
 async def main():
     print("Hello from s3e2!")
     
     # Get all txt files from do-not-share directory
     txt_files = [f for f in list_files("do-not-share") if f.endswith('.txt')]
     
-    # Process each file
-    for filename in txt_files:
-        file_path = Path("do-not-share") / filename
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-            metadata = await generate_keywords(content, filename)
-            print(metadata)
-            index_chunk(content, metadata=metadata)
+    # Process files in parallel
+    await asyncio.gather(*[process_file(filename) for filename in txt_files])
 
 
 if __name__ == "__main__":
