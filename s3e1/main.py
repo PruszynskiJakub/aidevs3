@@ -51,15 +51,12 @@ def build_knowledge() -> str:
     return "\n".join(combined_facts)
 
 
-# Instead of building contextual information, let's enhance the chunk with contextual information
 async def enhance_chunk_with_context(
         report_file_name: str,
         chunk_content: str,
         full_report: str,
         facts: str
 ) -> str:
-    """Situates a chunk of the report within the context of the full report and facts."""
-
     prompt = f'''<document>
                 {full_report}
                 </document>
@@ -82,7 +79,7 @@ async def enhance_chunk_with_context(
                 2. Explaining relationships between entities mentioned in the chunk
                 3. Connecting events in the chunk to broader timeline/narrative
                 4. Clarifying any references or terminology
-                5. Including relevant facts that directly relate to the chunk content
+                5. Including relevant facts and information from other reports that directly or indirectly relate to the chunk content
 
                 Return the enhanced chunk that incorporates this context naturally into the text.
                 Maintain the original meaning while making it more informative and self-contained.'''
@@ -98,8 +95,8 @@ async def enhance_chunk_with_context(
 
 async def describe_report(report_file_name: str, chunk_content: str, full_report: str, facts: str) -> str:
     """Describes a report by situating its content within the context of the provided full report and facts."""
-    context = await enhance_chunk_with_context(report_file_name, chunk_content, full_report, facts)
-    print("Context:", context)
+    enhanced_chunk = await enhance_chunk_with_context(report_file_name, chunk_content, full_report, facts)
+    # print("Enhanced chunk:", enhanced_chunk)
     prompt = f'''
     From now on, instead of answering questions, focus on extracting keywords for full-text search.
 
@@ -132,18 +129,14 @@ async def describe_report(report_file_name: str, chunk_content: str, full_report
     </snippet_rules>
 
     Text to extract keywords is report.
-    Context, facts and filename are provided to help you enhance the understanding of the report.
-     
-    <facts>
-    {facts}
-    </facts>
+    The filename are provided to help you enhance the understanding of the report.
     
     <filename>
     {report_file_name}
     </filename>
 
     <report>
-    {chunk_content}
+    {enhanced_chunk}
     </report>
 
     Output only keywords separated by comma, no additional formatting.
