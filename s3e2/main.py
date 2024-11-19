@@ -1,5 +1,7 @@
 import asyncio
 import json
+import re
+from datetime import datetime
 from pathlib import Path
 from services import list_files, OpenAiService
 from vector_store import index_chunk
@@ -65,11 +67,37 @@ async def generate_metadata(content: str, filename: str) -> dict:
     keywords = json.loads(response.choices[0].message.content.strip())
     return {"filename": filename, **keywords}
 
+def extract_date_from_filename(filename: str) -> str:
+    # Try to find date patterns like YYYY-MM-DD, YYYYMMDD, etc.
+    patterns = [
+        r'(\d{4}-\d{2}-\d{2})',  # YYYY-MM-DD
+        r'(\d{8})',              # YYYYMMDD
+        r'(\d{4}_\d{2}_\d{2})'  # YYYY_MM_DD
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, filename)
+        if match:
+            date_str = match.group(1)
+            try:
+                # Normalize the date format
+                if len(date_str) == 8 and date_str.isdigit():  # YYYYMMDD
+                    return f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:]}"
+                elif '_' in date_str:  # YYYY_MM_DD
+                    return date_str.replace('_', '-')
+                return date_str
+            except ValueError:
+                pass
+    
+    # Return current date if no date found in filename
+    return datetime.now().strftime('%Y-%m-%d')
+
 async def process_file(filename: str):
     file_path = Path("do-not-share") / filename
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
         metadata = await generate_metadata(content, filename)
+        metadata['date'] = extract_date_from_filename(filename)
         print(metadata)
         index_chunk(content, metadata=metadata)
 
