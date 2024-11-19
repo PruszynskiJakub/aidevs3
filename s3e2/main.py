@@ -92,6 +92,21 @@ def extract_date_from_filename(filename: str) -> str:
     # Return current date if no date found in filename
     return datetime.now().strftime('%Y-%m-%d')
 
+async def is_relevant_for_query(content: str, query: str) -> bool:
+    openai_service = OpenAiService()
+    prompt = [
+        {
+            "role": "system",
+            "content": "Determine if the provided text content is relevant to answering the query. Reply only with 'true' or 'false'."
+        },
+        {
+            "role": "user",
+            "content": f"Content: {content}\n\nQuery: {query}"
+        }
+    ]
+    response = await openai_service.completion(messages=prompt, model='gpt-4o-mini')
+    return response.choices[0].message.content.strip().lower() == 'true'
+
 async def process_file(filename: str):
     file_path = Path("do-not-share") / filename
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -123,10 +138,19 @@ async def main():
         doc_keywords = set(doc.metadata.get('keywords', []))
         return query_keywords.issubset(doc_keywords)
     
-    results = search(query, filter_func=filter_func)
+    # First get potential matches based on keywords
+    initial_results = search(query, filter_func=filter_func)
+    
+    # Then check each result for relevance
+    relevant_results = []
+    for doc in initial_results:
+        if await is_relevant_for_query(doc.page_content, query):
+            relevant_results.append(doc)
+    
     print("\nSearch Results:")
     print(f"Query keywords: {query_keywords}")
-    for doc in results:
+    print(f"Found {len(relevant_results)} relevant documents out of {len(initial_results)} keyword matches")
+    for doc in relevant_results:
         print(f"\nMetadata: {doc.metadata}")
 
     
