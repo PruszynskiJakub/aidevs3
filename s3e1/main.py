@@ -52,7 +52,7 @@ def build_knowledge() -> str:
 
 
 # Instead of building contextual information, let's enhance the chunk with contextual information
-async def situate_chunk(
+async def enhance_chunk_with_context(
         report_file_name: str,
         chunk_content: str,
         full_report: str,
@@ -98,7 +98,7 @@ async def situate_chunk(
 
 async def describe_report(report_file_name: str, chunk_content: str, full_report: str, facts: str) -> str:
     """Describes a report by situating its content within the context of the provided full report and facts."""
-    context = await situate_chunk(report_file_name, chunk_content, full_report, facts)
+    context = await enhance_chunk_with_context(report_file_name, chunk_content, full_report, facts)
     print("Context:", context)
     prompt = f'''
     From now on, instead of answering questions, focus on extracting keywords for full-text search.
