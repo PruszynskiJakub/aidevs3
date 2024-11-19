@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 from services import list_files, OpenAiService
-from vector_store import index_chunk
+from vector_store import index_chunk, search
 
 
 async def generate_metadata(content: str, filename: str) -> dict:
