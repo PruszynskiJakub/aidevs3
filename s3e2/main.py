@@ -7,7 +7,7 @@ from services import list_files, OpenAiService
 from vector_store import index_chunk, search
 
 
-async def generate_metadata(content: str, filename: str) -> dict:
+async def generate_metadata(content: str) -> dict:
     openai_service = OpenAiService()
     prompt = [
         {
@@ -65,7 +65,7 @@ async def generate_metadata(content: str, filename: str) -> dict:
     ]
     response = await openai_service.completion(messages=prompt,model='gpt-4o-mini')
     keywords = json.loads(response.choices[0].message.content.strip())
-    return {"filename": filename, **keywords}
+    return keywords
 
 def extract_date_from_filename(filename: str) -> str:
     # Try to find date patterns like YYYY-MM-DD, YYYYMMDD, etc.
@@ -96,7 +96,8 @@ async def process_file(filename: str):
     file_path = Path("do-not-share") / filename
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
-        metadata = await generate_metadata(content, filename)
+        metadata = await generate_metadata(content)
+        metadata['filename'] = filename
         metadata['date'] = extract_date_from_filename(filename)
         print(metadata)
         index_chunk(content, metadata=metadata)
@@ -115,7 +116,7 @@ async def main():
     results = search(query)
     print("\nSearch Results:")
     for doc in results:
-        print(f"\nContent: {doc.page_content[:200]}...")
+        # print(f"\nContent: {doc.page_content[:200]}...")
         print(f"Metadata: {doc.metadata}")
 
 
