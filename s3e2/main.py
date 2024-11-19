@@ -109,6 +109,14 @@ async def main():
     
     # Process files in parallel
     await asyncio.gather(*[process_file(filename) for filename in txt_files])
+    
+    # Search for specific query
+    query = "W raporcie, z którego dnia znajduje się wzmianka o kradzieży prototypu broni?"
+    results = search(query)
+    print("\nSearch Results:")
+    for doc in results:
+        print(f"\nContent: {doc.page_content[:200]}...")
+        print(f"Metadata: {doc.metadata}")
 
 
 if __name__ == "__main__":
