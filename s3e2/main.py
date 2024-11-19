@@ -113,11 +113,21 @@ async def main():
     
     # Search for specific query
     query = "W raporcie, z którego dnia znajduje się wzmianka o kradzieży prototypu broni?"
-    results = search(query)
+    
+    # Generate keywords for the query
+    query_metadata = await generate_metadata(query)
+    query_keywords = set(query_metadata.get('keywords', []))
+    
+    # Create filter function to match documents containing any of the query keywords
+    def filter_func(doc):
+        doc_keywords = set(doc.metadata.get('keywords', []))
+        return bool(query_keywords & doc_keywords)
+    
+    results = search(query, filter_func=filter_func)
     print("\nSearch Results:")
+    print(f"Query keywords: {query_keywords}")
     for doc in results:
-        # print(f"\nContent: {doc.page_content[:200]}...")
-        print(f"Metadata: {doc.metadata}")
+        print(f"\nMetadata: {doc.metadata}")
 
 
 if __name__ == "__main__":
