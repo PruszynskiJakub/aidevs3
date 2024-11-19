@@ -24,5 +24,5 @@ def index_chunk(chunk_text, metadata={}):
     vector_store.add_documents([document])
 
 
-def search(query, limit=10) -> list[Document]:
-    return vector_store.search(query=query, search_type="similarity")
+def search(query, limit=10, filter_func=None) -> list[Document]:
+    return vector_store.similarity_search(query=query, filter=filter_func, k=limit)
