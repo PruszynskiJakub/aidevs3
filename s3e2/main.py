@@ -129,6 +129,7 @@ async def main():
     for doc in results:
         print(f"\nMetadata: {doc.metadata}")
 
+    
 
 if __name__ == "__main__":
     asyncio.run(main())
