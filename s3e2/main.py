@@ -5,7 +5,7 @@ from services import list_files, OpenAiService
 from vector_store import index_chunk
 
 
-async def generate_keywords(content: str, filename: str) -> dict:
+async def generate_metadata(content: str, filename: str) -> dict:
     openai_service = OpenAiService()
     prompt = [
         {
@@ -69,7 +69,7 @@ async def process_file(filename: str):
     file_path = Path("do-not-share") / filename
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
-        metadata = await generate_keywords(content, filename)
+        metadata = await generate_metadata(content, filename)
         print(metadata)
         index_chunk(content, metadata=metadata)
 
