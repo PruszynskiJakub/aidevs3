@@ -1,5 +1,11 @@
 from services import OpenAiService
 
+tables = {
+    "users": "Table containing user information and credentials",
+    "datacenters": "Table containing datacenter locations and specifications",
+    "connections": "Table tracking connections between users and datacenters"
+}
+
 async def main():
     print("Hello from s3e3!")
 
