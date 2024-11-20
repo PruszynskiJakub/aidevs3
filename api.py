@@ -24,5 +24,6 @@ def answer(task: str, response: Any):
     if json_result['code'] == 0 and result.status_code == 200:
         print("The answer is correct")
         print(f"Message: {json_result}")
+        return json_result
     else:
         print(f"The answer is incorrect.\nReason: {json_result['message']}")

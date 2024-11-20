@@ -102,8 +102,9 @@ async def analyze_structure(params: AnalyzeStructureParams) -> str:
     return completion.choices[0].message.content
 
 
-async def final_answer(ids: list[int]) -> None:
-    api.answer("database", ids)
+async def final_answer(ids: list[int]) -> str:
+    result = api.answer("database", ids)
+    return str(result)
 
 
 tools = {
