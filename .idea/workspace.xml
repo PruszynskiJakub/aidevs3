@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Implement s3e2">
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Implement only with windsurf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s3e3/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/s3e3/main.py" afterDir="false" />
     </list>
@@ -87,7 +87,7 @@
       <recent name="$PROJECT_DIR$/s2e1/recordings" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.solution">
+  <component name="RunManager" selected="Python.main (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="aidevs3" />
       <option name="ENV_FILES" value="" />
@@ -200,8 +200,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.solution" />
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.solution" />
         <item itemvalue="Python.main (5)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.main (4)" />
@@ -225,14 +225,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729237639526</updated>
-    </task>
-    <task id="LOCAL-00002" summary="create gitignore with rule for .env">
-      <option name="closed" value="true" />
-      <created>1729243034150</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1729243034150</updated>
     </task>
     <task id="LOCAL-00003" summary="Resolve poligon task">
       <option name="closed" value="true" />
@@ -618,7 +610,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732025931995</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Implement only with windsurf">
+      <option name="closed" value="true" />
+      <created>1732103198112</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103198112</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -634,7 +634,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Add files from s1e4 to repo" />
     <MESSAGE value="Add map fragments to repo" />
     <MESSAGE value="implement s2e2" />
     <MESSAGE value="implement s2e3" />
@@ -659,7 +658,8 @@
     <MESSAGE value="Move vector_store.py" />
     <MESSAGE value="Add param to index_chunk method" />
     <MESSAGE value="Implement s3e2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement s3e2" />
+    <MESSAGE value="Implement only with windsurf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement only with windsurf" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

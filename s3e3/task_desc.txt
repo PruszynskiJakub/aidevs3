@@ -1,0 +1,30 @@
+API do zapytań do bazy danych https://centrala.ag3nts.org/apidb
+
+Struktura zapytania - w odpowiedzi otrzymasz JSON-a z danymi
+
+{
+    "task": "database",
+    "apikey": "Twój klucz API",
+    "query": "select * from users limit 1"
+}
+
+
+Poza typowymi selectami przydatne mogą być polecenia:
+
+show tables = zwraca listę tabel
+
+show create table NAZWA_TABELI = pokazuje, jak zbudowana jest konkretna tabela
+
+Co należy zrobić w zadaniu?
+
+Połącz się z nowym API, które dostarczyliśmy. Komunikujesz się z nim przez JSON-a
+
+Zdobądź strukturę tabel, które Cię interesują
+
+Przekaż strukturę do LLM-a i poproś o przygotowanie zapytania SQL, które spełnia nasze wymagania
+
+Zdobądź odpowiedź na pytanie: “które aktywne datacenter (DC_ID) są zarządzane przez pracowników, którzy są na urlopie (is_active=0)”
+
+Odpowiedź (w formie tablicy) prześlij w standardowy sposób do centrali jako zadanie database.
+
+Jeśli odpowiedź zostanie potwierdzona przez centralę, otrzymasz flagę
