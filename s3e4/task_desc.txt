@@ -1,0 +1,42 @@
+Musisz pomóc nam namierzyć Barbarę Zawadzką! Zdobyliśmy dostęp do dwóch systemów, które mogą nam w tym pomóc.
+
+Pierwszy z nich to wyszukiwarka członków ruchu oporu. Możemy wyszukiwać ich z użyciem imienia podanego w formie mianownika, a w odpowiedzi otrzymamy listę miejsc, w których ich widziano.
+
+https://centrala.ag3nts.org/people 
+
+Drugi system to wyszukiwarka miejsc odwiedzonych przez konkretne osoby. Podajesz nazwę miasta do sprawdzenia (bez polskich znaków) i w odpowiedzi dowiadujesz się, których z członków ruchu oporu tam widziano.
+
+https://centrala.ag3nts.org/places 
+
+Interfejs dla obu systemów wygląda tak samo. Przyjmuje on zapytanie w formacie JSON jak poniżej:
+
+{
+ "apikey":"TWÓJ KLUCZ",
+ "query": "IMIE lub MIASTO"
+}
+
+Niestety, przy obu systemach ktoś majstrował i dane zwracane przez nie mogą być niekompletne. Musisz jednak poradzić sobie z tym, co masz.
+
+Zdobyliśmy także część notatki na temat Barbary, pochodząca z systemu zbierającego informacje o osobach poszukiwanych.
+
+https://centrala.ag3nts.org/dane/barbara.txt
+
+Połącz wszystkie dane w jedną całość i uzupełnij brakujące informacje. Kto był współpracownikiem Aleksandra i Barbary? Z kim widział się Rafał? Być może znalezienie informacji na ten temat pozwoli nam wytypować kolejne miejsce, w którym warto poszukać Barbary.
+
+Co należy zrobić w zadaniu?
+
+Ściągnij notatkę (plik TXT) na temat Barbary.
+
+Zastanów się jakie osoby i jakie nazwy miast są wspomniane w notatce
+
+Odpytaj o wspomniane poszlaki odpowiednie API
+
+Istnieje szansa, że z danych otrzymanych przez API otrzymasz kolejne imiona lub nazwy miast
+
+Odpytuj o nie kolejno tak długo, aż znajdziesz miasto, w którym znajduje się BARBARA
+
+Istnieje szansa, że idąc jakąś pokrętną drogą natrafisz na sekretną flagę 🚩
+
+Gdy namierzysz miasto, w którym znajduje się BARBARA, wyślij nazwę miasta do centrali (/report) do zadania loop.
+
+Podpowiedź: tego zadania nie da się rozwiązać z użyciem, zaledwie jednego prompta. Wymagane jest pewne zapętlenie zapytań, ale uważaj, aby nie zapętlić się w nieskończoność. Pamiętaj, że API odpytujemy słowami w mianowniku i bez polskich znaków (SLASK, a nie ŚLĄSKIEGO i GRZESIEK, a nie GRZEŚKOWI).
