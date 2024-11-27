@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 from abc import ABC, abstractmethod
@@ -174,3 +175,75 @@ class WebScrapeTool(AgentTool):
         except requests.RequestException as e:
             self.logger.error(f"Error scraping web content: {e}")
             return None
+
+
+class FinalAnswerTool(AgentTool):
+    """Tool for preparing the final answer based on key findings"""
+
+    name = "final_answer"
+    description = """
+    Prepares a final answer using the key findings and the original task description.
+    """
+    required_params = {
+        "key_findings": "The key findings to base the final answer on",
+        "task_description": "The original task description"
+    }
+
+    def __init__(self, llm_service):
+        """
+        Initialize the tool with LLM service
+
+        Args:
+            llm_service: Service for LLM interactions
+        """
+        super().__init__()
+        self.llm_service = llm_service
+
+    def execute(self, params: Dict[str, Any]) -> Union[str, None]:
+        """
+        Prepares the final answer using the key findings and an LLM.
+        
+        Args:
+            params (dict): Dictionary containing:
+                - key_findings (List[str]): The key findings to base the final answer on
+                - task_description (str): The original task description
+
+        Returns:
+            str: The final answer based on the task description and key findings
+            
+        Raises:
+            ValueError: If required parameters are missing
+        """
+        self.logger.info("Preparing final answer based on key findings using LLM")
+
+        if not params.get("key_findings"):
+            raise ValueError("Key findings parameter is required")
+        if not params.get("task_description"):
+            raise ValueError("Task description parameter is required")
+
+        # Prepare the prompt for the LLM
+        prompt = f"""
+        Task Description: {params["task_description"]}
+
+        Key Findings:
+        {json.dumps(params["key_findings"], indent=2)}
+
+        Based on the task description and the key findings provided, generate a final answer.
+        The answer should directly address the task description and incorporate relevant key findings.
+
+        Final Answer:
+        """
+
+        # Call the LLM service to generate the final answer
+        try:
+            response = self.llm_service.completion(
+                messages=[{"role": "system", "content": prompt}],
+                max_tokens=500
+            )
+            final_answer = response.choices[0].message.content.strip()
+        except Exception as e:
+            self.logger.error(f"Error generating final answer with LLM: {e}")
+            return None
+
+        self.logger.info("Final answer prepared successfully using LLM")
+        return final_answer

@@ -1,7 +1,7 @@
 import json
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Tuple
 
 from agent_tools import AgentTool
 
@@ -12,7 +12,6 @@ class ContextEntry:
     tool_name: str
     step_description: str
     parameters: Dict[str, Any]
-    result: Any
     timestamp: datetime
     related_info: Dict[str, Any]
 
@@ -30,119 +29,158 @@ class Agent:
         """
         self.tools = {tool.name: tool for tool in available_tools}
         self.llm_service = llm_service
-        self.memory = {}
         self.context_history: List[ContextEntry] = []
         self.current_task: Optional[str] = None
+        self.key_findings: List[str] = []
 
     async def run(self, task_description: str) -> Any:
         """
-        Main entry point for task execution. Creates execution plan and handles the execution flow.
+        Main entry point for task execution. Plans and executes one step at a time,
+        evaluating progress after each step.
 
         Args:
             task_description (str): Description of the task to perform
 
         Returns:
             Any: Result of the task execution
-
-        Raises:
-            Exception: If task execution fails
         """
         self.current_task = task_description
+        max_steps = 25  # Safety limit to prevent infinite loops
+        step_count = 0
+
         try:
-            # Create execution plan
-            execution_plan = await self.plan(task_description)
+            while step_count < max_steps:
+                # 1. Plan next step
+                next_step = await self._plan_next_step(task_description)
+                if not next_step['plan']:
+                    print("No more steps needed - task complete")
+                    break
 
-            # Execute each step in the plan
-            for step in execution_plan['plan']:
-                result = await self.execute(step)
+                # 2. Execute the step
+                print(f"Executing step {step_count}: {next_step['plan'][0]['step']}")
+                result = await self.execute(next_step['plan'][0])
 
-                # Create structured context entry
+                # 3. Create and store context entry
                 context_entry = ContextEntry(
-                    tool_name=step['tool_name'],
-                    step_description=step['step'],
-                    parameters=step['parameters'],
-                    result=result,
+                    tool_name=next_step['plan'][0]['tool_name'],
+                    step_description=next_step['plan'][0]['step'],
+                    parameters=next_step['plan'][0]['parameters'],
+                    # result=result,
                     timestamp=datetime.now(),
                     related_info={}
                 )
 
-                # Extract information and update related info
+                # 4. Extract and evaluate information
                 if result:
                     extracted_info = await self._extract_information(
                         result,
-                        execution_plan['required_information']
+                        next_step['required_information']
                     )
-                    context_entry.related_info = extracted_info
-
+                    context_entry.related_info = extracted_info['key_findings']
+                    
                 self.context_history.append(context_entry)
 
-            return self.memory
+                # 5. Evaluate progress and decide whether to continue
+                if next_step['plan'][0]['tool_name'] == 'final_answer':
+                    return result
+
+                step_count += 1
+
+            return self.key_findings
 
         except Exception as e:
             print(f"Error executing task: {e}")
             raise
 
-    async def plan(self, task_description: str) -> Dict[str, Any]:
+    async def _plan_next_step(self, task_description: str) -> Dict[str, Any]:
         """
-        Creates a multi-step execution plan for the given task.
-
-        Args:
-            task_description (str): Description of the task to perform
-
-        Returns:
-            dict: Contains execution plan with steps and required information
+        Plans the next single step based on current context and task description.
         """
-        # Format context history for the prompt
         formatted_context = self._format_context_for_prompt()
+        formatted_tools = self._format_tools_for_prompt()
+        key_findings_str = json.dumps(self.key_findings, indent=2)
 
-        prompt = f"""Given the following task description, create a plan of actions and determine which tools to use.
+        prompt = f"""Given the task description, current context, and key findings, determine the SINGLE NEXT STEP to take.
+        
         Available tools:
-        {self._format_tools_for_prompt()}
+        {formatted_tools}
         
         Task description: {task_description}
         
-        Context History:
+        Current Context:
         {formatted_context}
         
-        Previous findings: {self.memory}
-        
+        Key Findings:
+        {key_findings_str}
+                
         <rules>
-        1. Keep any placeholders in the format [[PLACEHOLDER_NAME]] exactly as they are - do not modify or replace them.
-        2. Consider the context history when planning next steps to avoid redundant operations.
+        1. Plan only ONE next step that brings us closer to completing the task
+        2. Keep any placeholders in the format [[PLACEHOLDER_NAME]]
+        3. Consider the context history to avoid redundant operations
+        4. Use ONLY the tools and parameters listed in the 'Available tools' section
+        5. Base your decision on factual information from the key findings and context
+        6. Do not introduce any information or assumptions not present in the provided data
         </rules>
         
         Respond in the following JSON format:
         {{
-            "_thinking": "Describe your thought process here about how you're approaching this task, what considerations you're making, and why you're choosing specific steps",
+            "_thinking": "Explain why this specific step is the best next action, referencing key findings or context",
             "plan": [
                 {{
-                    "step": "description of the step",
-                    "tool_name": "name of the tool to use", 
+                    "step": "description of the single next step",
+                    "tool_name": "exact name of the tool to use from the available tools",
                     "parameters": {{
-                        parameters to pass to the tool
+                        "param1": "value1",
+                        "param2": "value2"
                     }}
                 }}
             ],
             "required_information": [
-                "list of information we need to extract to complete the task"
+                "list of specific information we need to extract from this step's result"
             ]
         }}
         """
-        # print(prompt)
 
         response = await self.llm_service.completion(
-            messages=[
-                {"role": "system", "content": prompt},
-            ],
+            messages=[{"role": "system", "content": prompt}],
             response_format={"type": "json_object"}
         )
 
+        print("Next step plan:")
         print(response.choices[0].message.content)
 
-        try:
-            return json.loads(response.choices[0].message.content)
-        except Exception as e:
-            raise ValueError(f"Failed to parse LLM response: {e}")
+        return json.loads(response.choices[0].message.content)
+
+    async def _evaluate_progress(self, task_description: str) -> Dict[str, Any]:
+        """
+        Evaluates whether the current context and findings are sufficient to complete the task.
+        """
+        formatted_context = self._format_context_for_prompt()
+
+        prompt = f"""Evaluate whether we have gathered enough information to complete the task.
+        
+        Task description: {task_description}
+        
+        Current Context:
+        {formatted_context}
+        
+        Key findings so far: {self.key_findings}
+        
+        Respond in the following JSON format:
+        {{
+            "task_completed": true/false,
+            "reasoning": "Detailed explanation of why the task is complete or what's missing",
+            "missing_elements": ["List of any missing information or steps needed"],
+            "confidence_score": 0.0-1.0
+        }}
+        """
+
+        response = await self.llm_service.completion(
+            messages=[{"role": "system", "content": prompt}],
+            response_format={"type": "json_object"}
+        )
+
+        return json.loads(response.choices[0].message.content)
 
     async def execute(self, step: Dict[str, Any]) -> Any:
         """
@@ -185,11 +223,32 @@ class Agent:
     async def _extract_information(self, content: Any, required_info: List[str]) -> Dict[str, Any]:
         """Extract specific information from content and return it"""
         prompt = f"""
-        From the following content, extract information about: {required_info}
-        
+        Analyze the following content and extract key information based on:
+        1. The required information: {required_info}
+        2. Information relevant to the current task: {self.current_task}
+        3. Key findings crucial to complete the task: {self.key_findings}
+        4. Information that might be useful for future steps
+        5. Results and outcomes of actions taken
+
         Content: {content}
+
+        Consider:
+        - Direct answers to required information
+        - Task progress indicators
+        - Dependencies or prerequisites discovered
+        - Action outcomes and their implications
+        - Any constraints or limitations identified
+        - If the content is the part of the main objective of the task then paste it without any formatting in key_findings
+
+        Respond with a JSON object containing:
+        {{
+            "_thinking": "Explain the reasoning behind the extracted information",
+            "related_directly_to_main_objective": "true/false",
+            "key_findings": [
+                "concise bullet list of information we need to extract to complete the task, if it is related to the main objective then paste {content} it without any formatting"
+            ]
+        }}
         
-        Respond with only the relevant information in JSON format.
         """
 
         response = await self.llm_service.completion(
@@ -198,9 +257,21 @@ class Agent:
             ],
             response_format={"type": "json_object"}
         )
+        print("Extracted information:")
+        print(response.choices[0].message.content)
 
         extracted_info = json.loads(response.choices[0].message.content)
-        self.memory.update(extracted_info)
+        # Update memory with structured information
+        # if isinstance(extracted_info['key_findings'], dict):
+        #     self.memory.update({
+        #         'key_findings': {**self.memory.get('key_findings', {}), **extracted_info['key_findings']},
+        #     })
+        # else:
+        #     self.memory['key_findings'] = extracted_info['key_findings']
+
+        self.key_findings.extend(extracted_info['key_findings'])
+
+        
         return extracted_info
 
     def _format_tools_for_prompt(self) -> str:
@@ -218,3 +289,59 @@ class Agent:
                     desc += f"- {param}: {param_desc}\n"
             tool_descriptions.append(desc)
         return "\n".join(tool_descriptions)
+
+    async def refine(self) -> Tuple[Dict[str, Any], List[str]]:
+        """
+        Analyzes current context and memory against the objective to identify gaps
+        and determine next steps.
+
+        Returns:
+            Tuple[Dict[str, Any], List[str]]: Contains analysis results and identified gaps
+        """
+        if not self.current_task:
+            raise ValueError("No active task to refine")
+
+        formatted_context = self._format_context_for_prompt()
+
+        prompt = f"""Analyze the current context and progress towards the following objective.
+        
+        Objective: {self.current_task}
+        
+        Context History:
+        {formatted_context}
+        
+        Current Findings: {self.memory}
+        
+        Analyze the situation and respond in the following JSON format:
+        {{
+            "analysis": {{
+                "progress": "Description of progress made so far",
+                "key_findings": ["List of important discoveries"],
+                "missing_information": ["Information gaps that need to be filled"],
+                "inconsistencies": ["Any contradictions or unclear points in the data"],
+                "suggested_actions": ["Specific actions to take next"]
+            }},
+            "confidence_score": "0-1 score indicating confidence in current findings",
+            "requires_additional_context": true/false
+        }}
+        """
+
+        response = await self.llm_service.completion(
+            messages=[
+                {"role": "system", "content": prompt},
+            ],
+            response_format={"type": "json_object"}
+        )
+
+        analysis_result = json.loads(response.choices[0].message.content)
+
+        # Update memory with analysis
+        self.memory['latest_analysis'] = {
+            'timestamp': datetime.now().isoformat(),
+            'analysis': analysis_result
+        }
+
+        return (
+            analysis_result,
+            analysis_result['analysis']['missing_information']
+        )
