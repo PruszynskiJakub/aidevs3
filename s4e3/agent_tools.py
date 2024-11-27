@@ -127,9 +127,7 @@ class WebScrapeTool(AgentTool):
     required_params = {
         "url": "The URL of the webpage to scrape"
     }
-    optional_params = {
-        "include_links_summary": "Boolean to include links summary in response (default: True)"
-    }
+    optional_params = {}
 
     def execute(self, params: Dict[str, Any]) -> Union[Dict, None]:
         """
@@ -138,8 +136,7 @@ class WebScrapeTool(AgentTool):
         Args:
             params (dict): Dictionary containing:
                 - url (str): The webpage URL to scrape
-                - include_links_summary (bool, optional): Include links summary
-        
+
         Returns:
             dict: Scraped content response
             
@@ -159,7 +156,7 @@ class WebScrapeTool(AgentTool):
         headers = {
             "Authorization": f"Bearer {jina_api_key}",
             'Accept': 'application/json',
-            "X-With-Links-Summary": str(params.get("include_links_summary", True)).lower()
+            "X-With-Links-Summary": "true"
         }
 
         try:
