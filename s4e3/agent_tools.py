@@ -168,7 +168,9 @@ class WebScrapeTool(AgentTool):
 
             result = response.json()
             self.logger.info(f"Web scraping successful: {response.status_code}")
-            return result
+            return {
+                "content": result.get("data")['content'],
+            }
         except requests.RequestException as e:
             self.logger.error(f"Error scraping web content: {e}")
             return None
