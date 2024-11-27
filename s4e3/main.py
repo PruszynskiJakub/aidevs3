@@ -29,7 +29,8 @@ if __name__ == "__main__":
 
         # Example task
         task = """Fetch the questions data from the [[AG3NTS_HQ_URL]]/data/[[AG3NTS_API_KEY]]/softo.json using the API key. 
-        Then answer the questions in the data with the content available on under this url https://softo.ag3nts.org."""
+        Then answer the questions in the data with the content available on under this url https://softo.ag3nts.org. 
+        If you cannot find the answer in the content, try to find it on relevant subpages."""
 
         result = await agent.run(task)
         if result:
