@@ -36,13 +36,15 @@ class OpenAiService:
         self, 
         messages: [ChatCompletionMessageParam], 
         model: str = 'gpt-4o',
-        stream: bool = False
+            stream: bool = False,
+            response_format: dict | None = None
     ) -> ChatCompletion | AsyncIterable[ChatCompletionChunk]:
         try:
             return await self._client.chat.completions.create(
                 model=model,
                 messages=messages,
-                stream=stream
+                stream=stream,
+                response_format=response_format
             )
 
         except Exception as e:
