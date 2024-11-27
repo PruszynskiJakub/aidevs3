@@ -1,11 +1,13 @@
 import json
 from typing import Dict, Any, List
 
+from .agent_tools import AgentTool
+
 
 class Agent:
     """Agent that can understand tasks and execute tools"""
 
-    def __init__(self, available_tools: List['AgentTool'], llm_service):
+    def __init__(self, available_tools: List[AgentTool], llm_service):
         """
         Initialize the agent with tools and LLM service
         
