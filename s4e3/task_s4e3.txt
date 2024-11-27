@@ -1,0 +1,34 @@
+Zadanie: Wiemy już, że oprogramowanie do fabryk i magazynów robotów realizuje firma SoftoAI. Firm tego typu jest znacznie więcej. Centrala poprosiła Cię numerze piąty o przygotowanie uniwersalnego mechanizmu do poszukiwania informacji na takich stronach. Aby sprawdzić, czy Twój mechanizm działa zgodnie z oczekiwaniami, odpowiedz proszę na pytania centrali:
+
+https://centrala.ag3nts.org/data/TUTAJ-KLUCZ/softo.json
+
+Wszystkie informacje znajdziesz na stronie firmy SoftoAI:
+
+https://softo.ag3nts.org
+
+Odpowiedzi wyślij do /report, w polu ‘answer’, w takiej samej formie, w jakiej centrala udostępniła pytania. Nazwa zadania to softo.
+
+Oczekiwany format odpowiedzi:
+
+{
+    "01": "zwięzła i konkretna odpowiedź na pierwsze pytanie",
+    "02": "zwięzła i konkretna odpowiedź na drugie pytanie",
+    "03": "zwięzła i konkretna odpowiedź na trzecie pytanie"
+}
+
+
+Co należy zrobić w zadaniu?
+
+Pobierz listę pytań przesłanych od centrali z adresu: https://centrala.ag3nts.org/data/TUTAJ-KLUCZ/softo.json
+
+Pytania są trzy i mają one swoje numery: 01, 02 oraz 03. Z takimi samymi numerami musimy otrzymać odpowiedzi. Pytania się nie zmieniają.
+
+Napisz automat, który wejdzie na stronę https://softo.ag3nts.org i na podstawie pytań centrali zdecyduje, na którą podstronę serwisu należy się udać, po czym otworzy ją
+
+Jeśli na stronie docelowej znajduje się odpowiedź na pytanie otrzymane od centrali, zapamiętaj ją i przejdź do opracowywania odpowiedzi na kolejne pytanie.
+
+Jeśli na podstronie nie ma odpowiedzi, to zastanów się, czy znajdują się tam jakieś linki mogące doprowadzić Cię do znalezienia odpowiedzi.
+
+Niektóre z pytań wymagają wejścia w głąb na 2-3 strony. Nie wszystkie pytania posiadają odpowiedź dostępną po jednym kliknięciu.
+
+Gotowe odpowiedzi wyślij do zadania o nazwie softo
