@@ -108,7 +108,7 @@ class MakeApiCallTool(AgentTool):
 
 
 class Agent:
-    """Agent that can understand tasks and execute appropriate tools"""
+    """Agent that can understand tasks and execute tools"""
 
     def __init__(self, available_tools: List[AgentTool], llm_service):
         """
@@ -120,6 +120,31 @@ class Agent:
         """
         self.tools = {tool.name: tool for tool in available_tools}
         self.llm_service = llm_service
+
+    async def run(self, task_description: str) -> Any:
+        """
+        Main method to run a task. Handles the execution flow and error handling.
+        
+        Args:
+            task_description (str): Description of the task to perform
+            
+        Returns:
+            Any: Result of the task execution
+            
+        Raises:
+            Exception: If task execution fails
+        """
+        try:
+            result = await self.execute_task(task_description)
+            if result:
+                print("Task executed successfully:")
+                return result
+            else:
+                print("Task execution failed")
+                return None
+        except Exception as e:
+            print(f"Error executing task: {e}")
+            raise
 
     async def analyze_task(self, task_description: str) -> Dict[str, Any]:
         """
@@ -202,7 +227,6 @@ if __name__ == "__main__":
     import asyncio
     from services import OpenAiService
 
-
     async def main():
         # Create available tools
         api_tool = MakeApiCallTool()
@@ -214,15 +238,8 @@ if __name__ == "__main__":
         # Example task
         task = """Fetch the questions data from the [[AG3NTS_HQ_URL]]/data/[[AG3NTS_API_KEY]]/softo.json using the API key"""
 
-        try:
-            result = await agent.execute_task(task)
-            if result:
-                print("Task executed successfully:")
-                print(result)
-            else:
-                print("Task execution failed")
-        except Exception as e:
-            print(f"Error executing task: {e}")
-
+        result = await agent.run(task)
+        if result:
+            print(result)
 
     asyncio.run(main())
