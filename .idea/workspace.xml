@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Implement s3e5">
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Expose only run method from the Agent">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s4e3/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/s4e3/main.py" afterDir="false" />
+    </list>
+    <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo">
+      <change afterPath="$PROJECT_DIR$/agent/agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent/openai_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent/prompts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent/tool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s4e1/log.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/s4e1/task_desc.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo" />
     <list id="484781ee-b21a-42f1-ac94-f4f4f94c2cad" name="websearch" comment="">
       <change afterPath="$PROJECT_DIR$/examples/websearch/WebSearchService.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/examples/websearch/main.py" afterDir="false" />
@@ -42,6 +51,39 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/e1s1/0.13.4b.txt" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="6" end1="7" start2="6" end2="17" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="9" end1="10" start2="19" end2="19" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="44" end1="44" start2="53" end2="85" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="54" end1="72" start2="95" end2="116" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="73" end1="74" start2="117" end2="118" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="89" end1="91" start2="133" end2="135" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="99" end1="100" start2="143" end2="144" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="103" end1="104" start2="147" end2="148" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="112" end1="113" start2="156" end2="157" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="121" end1="122" start2="165" end2="166" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="125" end1="126" start2="169" end2="170" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="134" end1="135" start2="178" end2="179" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="143" end1="144" start2="187" end2="188" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="147" end1="148" start2="191" end2="192" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="156" end1="157" start2="200" end2="201" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="165" end1="166" start2="209" end2="210" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="169" end1="170" start2="213" end2="214" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="178" end1="179" start2="222" end2="223" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="183" end1="186" start2="227" end2="227" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="187" end1="188" start2="228" end2="229" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="191" end1="192" start2="232" end2="233" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="202" end1="206" start2="243" end2="243" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="207" end1="207" start2="244" end2="248" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="228" end1="276" start2="269" end2="269" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="620" end1="621" start2="613" end2="662" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="636" end1="642" start2="677" end2="677" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="661" end1="662" start2="696" end2="703" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -225,54 +267,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729237639526</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Clear">
-      <option name="closed" value="true" />
-      <created>1730807827729</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1730807827729</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Move and rename file">
-      <option name="closed" value="true" />
-      <created>1730821344696</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1730821344696</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Move service">
-      <option name="closed" value="true" />
-      <created>1730821352098</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1730821352098</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Create dummy solution to complete the task">
-      <option name="closed" value="true" />
-      <created>1730821373939</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1730821373939</updated>
-    </task>
-    <task id="LOCAL-00012" summary="import fix">
-      <option name="closed" value="true" />
-      <created>1730821383842</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1730821383842</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Extract url">
-      <option name="closed" value="true" />
-      <created>1730880915028</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1730880915028</updated>
     </task>
     <task id="LOCAL-00014" summary="Implement more agentic approach to solve the riddle">
       <option name="closed" value="true" />
@@ -618,7 +612,55 @@
       <option name="project" value="LOCAL" />
       <updated>1732612969174</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Implement s4e1">
+      <option name="closed" value="true" />
+      <created>1732642093673</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1732642093673</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Implement s4e2">
+      <option name="closed" value="true" />
+      <created>1732700843252</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1732700843253</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Swap fine tuned model">
+      <option name="closed" value="true" />
+      <created>1732702279912</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1732702279912</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Start working on s4e3">
+      <option name="closed" value="true" />
+      <created>1732703109011</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1732703109011</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Create dummy agent class using the tool">
+      <option name="closed" value="true" />
+      <created>1732704212880</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1732704212880</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Expose only run method from the Agent">
+      <option name="closed" value="true" />
+      <created>1732704349407</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1732704349407</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -634,12 +676,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Rename method" />
-    <MESSAGE value="Remove redundant files for task s2e4" />
-    <MESSAGE value="Rename file" />
-    <MESSAGE value="Extract common methods" />
-    <MESSAGE value="Implement s2e4" />
-    <MESSAGE value="implement s2e5" />
     <MESSAGE value="Use in memory vector store instead of qdrant" />
     <MESSAGE value="Commit nmiissing files" />
     <MESSAGE value="add files" />
@@ -659,7 +695,13 @@
     <MESSAGE value="Improve final_answer tool" />
     <MESSAGE value="Implement s3e4" />
     <MESSAGE value="Implement s3e5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement s3e5" />
+    <MESSAGE value="Implement s4e1" />
+    <MESSAGE value="Implement s4e2" />
+    <MESSAGE value="Swap fine tuned model" />
+    <MESSAGE value="Start working on s4e3" />
+    <MESSAGE value="Create dummy agent class using the tool" />
+    <MESSAGE value="Expose only run method from the Agent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Expose only run method from the Agent" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
