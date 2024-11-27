@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Modify the task description">
+    <list default="true" id="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" name="Changes" comment="Fix import">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s4e3/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/s4e3/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s4e3/agent_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/s4e3/agent_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s4e3/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/s4e3/main.py" afterDir="false" />
     </list>
     <list id="026b466e-8dfa-4282-9486-dc3cc1ae4805" name="secret" comment="Add files from s1e4 to repo">
@@ -55,31 +57,33 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/.idea/workspace.xml">
       <ranges>
-        <range start1="6" end1="7" start2="6" end2="9" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
-        <range start1="60" end1="78" start2="62" end2="83" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="79" end1="80" start2="84" end2="85" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="95" end1="97" start2="100" end2="102" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="105" end1="106" start2="110" end2="111" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="109" end1="110" start2="114" end2="115" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="118" end1="119" start2="123" end2="124" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="127" end1="128" start2="132" end2="133" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="131" end1="132" start2="136" end2="137" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="140" end1="141" start2="145" end2="146" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="149" end1="150" start2="154" end2="155" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="153" end1="154" start2="158" end2="159" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="162" end1="163" start2="167" end2="168" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="171" end1="172" start2="176" end2="177" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="175" end1="176" start2="180" end2="181" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="184" end1="185" start2="189" end2="190" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="189" end1="192" start2="194" end2="194" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="193" end1="194" start2="195" end2="196" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="197" end1="198" start2="199" end2="200" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="208" end1="212" start2="210" end2="210" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="213" end1="213" start2="211" end2="215" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
-        <range start1="233" end1="241" start2="235" end2="235" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
-        <range start1="626" end1="627" start2="620" end2="629" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
-        <range start1="642" end1="643" start2="644" end2="644" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
-        <range start1="667" end1="668" start2="668" end2="670" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="6" end1="7" start2="6" end2="7" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="8" end1="9" start2="8" end2="9" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="57" end1="82" start2="57" end2="83" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="94" end1="112" start2="95" end2="116" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="113" end1="114" start2="117" end2="118" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="129" end1="131" start2="133" end2="135" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="139" end1="140" start2="143" end2="144" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="143" end1="144" start2="147" end2="148" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="152" end1="153" start2="156" end2="157" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="161" end1="162" start2="165" end2="166" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="165" end1="166" start2="169" end2="170" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="174" end1="175" start2="178" end2="179" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="183" end1="184" start2="187" end2="188" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="187" end1="188" start2="191" end2="192" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="196" end1="197" start2="200" end2="201" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="205" end1="206" start2="209" end2="210" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="209" end1="210" start2="213" end2="214" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="218" end1="219" start2="222" end2="223" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="223" end1="226" start2="227" end2="227" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="227" end1="228" start2="228" end2="229" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="231" end1="232" start2="232" end2="233" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="242" end1="246" start2="243" end2="243" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="247" end1="247" start2="244" end2="248" changelist="026b466e-8dfa-4282-9486-dc3cc1ae4805" />
+        <range start1="267" end1="299" start2="268" end2="268" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="660" end1="661" start2="629" end2="662" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="676" end1="680" start2="677" end2="677" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
+        <range start1="701" end1="702" start2="698" end2="703" changelist="3ed12e0b-022b-4d0c-b8cc-29da4e64642d" />
       </ranges>
     </file>
   </component>
@@ -265,38 +269,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729237639526</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Print json">
-      <option name="closed" value="true" />
-      <created>1730900454814</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1730900454814</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Add counting tokens">
-      <option name="closed" value="true" />
-      <created>1730966298216</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1730966298216</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Add prompt for s1e4">
-      <option name="closed" value="true" />
-      <created>1730997045364</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1730997045364</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Do s1e5">
-      <option name="closed" value="true" />
-      <created>1731085261234</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1731085261234</updated>
     </task>
     <task id="LOCAL-00021" summary="Optimize impoorts">
       <option name="closed" value="true" />
@@ -658,7 +630,39 @@
       <option name="project" value="LOCAL" />
       <updated>1732706185715</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Create WebScrapeTool">
+      <option name="closed" value="true" />
+      <created>1732706758341</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1732706758341</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Split between files">
+      <option name="closed" value="true" />
+      <created>1732706958772</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1732706958772</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1732706999478</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1732706999478</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Fix import">
+      <option name="closed" value="true" />
+      <created>1732709344314</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1732709344314</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -674,10 +678,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fix method order" />
-    <MESSAGE value="Fix task name" />
-    <MESSAGE value="modyfing" />
-    <MESSAGE value="Complete s3e1" />
     <MESSAGE value="Add secret files to project" />
     <MESSAGE value="Add extra comment" />
     <MESSAGE value="Improve s3e1 a bit" />
@@ -699,7 +699,11 @@
     <MESSAGE value="Moved the common attributes (name, description, required_params, optional_params) to the base AgentTool class" />
     <MESSAGE value="Add files from s1e4 to repo" />
     <MESSAGE value="Modify the task description" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify the task description" />
+    <MESSAGE value="Create WebScrapeTool" />
+    <MESSAGE value="Split between files" />
+    <MESSAGE value="Fix" />
+    <MESSAGE value="Fix import" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix import" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
