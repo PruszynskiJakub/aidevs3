@@ -289,7 +289,8 @@ if __name__ == "__main__":
         agent = Agent([api_tool], llm_service)
 
         # Example task
-        task = """Fetch the questions data from the [[AG3NTS_HQ_URL]]/data/[[AG3NTS_API_KEY]]/softo.json using the API key"""
+        task = """Fetch the questions data from the [[AG3NTS_HQ_URL]]/data/[[AG3NTS_API_KEY]]/softo.json using the API key. 
+        Then answer the questions in the data with the content available on under this url https://softo.ag3nts.org."""
 
         result = await agent.run(task)
         if result:
