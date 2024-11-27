@@ -1,7 +1,7 @@
 import json
 from typing import Dict, Any, List
 
-from .agent_tools import AgentTool
+from agent_tools import AgentTool
 
 
 class Agent:
@@ -51,6 +51,8 @@ class Agent:
                         execution_plan['required_information']
                     )
 
+            new_plan = await self.plan(task_description)
+            
             return self.memory
 
         except Exception as e:
