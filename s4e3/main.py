@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 from abc import ABC, abstractmethod
 from enum import Enum
@@ -17,6 +18,9 @@ class AgentTool(ABC):
     description = "Base tool description"
     required_params = {}
     optional_params = {}
+
+    def __init__(self):
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     @abstractmethod
     def execute(self, params: dict) -> any:
@@ -65,6 +69,8 @@ class MakeApiCallTool(AgentTool):
             ValueError: If required parameters are missing or invalid
             requests.RequestException: If API request fails
         """
+        self.logger.info(f"Making API call to: {params.get('url')} with method: {params.get('method')}")
+        
         # Validate required parameters
         if not params.get("url"):
             raise ValueError("URL parameter is required")
@@ -97,9 +103,11 @@ class MakeApiCallTool(AgentTool):
         try:
             response = requests.request(method.value, url, **request_kwargs)
             response.raise_for_status()
-            return response.json()
+            result = response.json()
+            self.logger.info(f"API call successful: {response.status_code}")
+            return result
         except requests.RequestException as e:
-            print(f"Error making API call: {e}")
+            self.logger.error(f"Error making API call: {e}")
             return None
 
     def _extract_placeholders(self, url: str) -> List[str]:
@@ -110,6 +118,67 @@ class MakeApiCallTool(AgentTool):
         import re
         pattern = r'\[\[(.*?)\]\]'
         return re.findall(pattern, url)
+
+
+class WebScrapeTool(AgentTool):
+    """Tool for scraping web content using Jina API"""
+
+    name = "web_scrape"
+    description = """
+    Scrapes web content from a given URL using Jina API.
+    Returns the content with an optional summary including links.
+    """
+    required_params = {
+        "url": "The URL of the webpage to scrape"
+    }
+    optional_params = {
+        "include_links_summary": "Boolean to include links summary in response (default: True)"
+    }
+
+    def execute(self, params: Dict[str, Any]) -> Union[Dict, None]:
+        """
+        Scrapes web content using Jina API.
+        
+        Args:
+            params (dict): Dictionary containing:
+                - url (str): The webpage URL to scrape
+                - include_links_summary (bool, optional): Include links summary
+        
+        Returns:
+            dict: Scraped content response
+            
+        Raises:
+            ValueError: If required parameters are missing
+            requests.RequestException: If scraping request fails
+        """
+        self.logger.info(f"Scraping web content from: {params.get('url')}")
+
+        if not params.get("url"):
+            raise ValueError("URL parameter is required")
+
+        jina_api_key = os.getenv("JINA_API_KEY")
+        if not jina_api_key:
+            raise ValueError("JINA_API_KEY environment variable is required")
+
+        headers = {
+            "Authorization": f"Bearer {jina_api_key}",
+            'Accept': 'application/json',
+            "X-With-Links-Summary": str(params.get("include_links_summary", True)).lower()
+        }
+
+        try:
+            response = requests.get(
+                f"https://r.jina.ai/{params['url']}",
+                headers=headers
+            )
+            response.raise_for_status()
+
+            result = response.json()
+            self.logger.info(f"Web scraping successful: {response.status_code}")
+            return result
+        except requests.RequestException as e:
+            self.logger.error(f"Error scraping web content: {e}")
+            return None
 
 
 class Agent:
@@ -281,12 +350,19 @@ if __name__ == "__main__":
     from services import OpenAiService
 
     async def main():
+        # Configure logging
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+        
         # Create available tools
         api_tool = MakeApiCallTool()
+        web_scrape_tool = WebScrapeTool()
 
         # Create LLM service and agent
         llm_service = OpenAiService()
-        agent = Agent([api_tool], llm_service)
+        agent = Agent([api_tool, web_scrape_tool], llm_service)
 
         # Example task
         task = """Fetch the questions data from the [[AG3NTS_HQ_URL]]/data/[[AG3NTS_API_KEY]]/softo.json using the API key. 
