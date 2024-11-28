@@ -1,0 +1,47 @@
+Oto zdobyta mapa - pilot każdy lot zaczyna od punktu startowego w lewym górnym rogu mapy.
+
+Musisz przygotować API działające po protokole HTTPS, a następnie wysłać do centrali URL do tego API jako odpowiedź na zadanie o nazwie webhook.
+
+Pracownik centrali wyśle na Twoje API metodą POST dane w formacie JSON w formie jak poniżej:
+
+{
+"instruction":"tutaj instrukcja gdzie poleciał dron"
+}
+
+
+Opis lotu drona może być w dowolnej formie i jest to tekst w języku naturalnym, np. “poleciałem jedno pole w prawo, a później na sam dół”. Twoim zadaniem jest odpowiedzenie w maksymalnie dwóch słowach, co tam się znajduje. W naszym przykładzie odpowiedzią byłyby np. “skały”.
+
+Centrala wyśle do Twojego API kilka takich opisów lotów. Jeden po drugim. Każdy w oddzielnym zapytaniu. Zadanie uznawane jest za zaliczone, gdy wszystkie loty skończą się sukcesem. Przekazanie pilotowi nieprawdziwych informacji nawigacyjnych kończy się rozbiciem drona.
+
+W tym zadaniu możesz wykorzystać hosting na Azylu, jeśli masz na to ochotę (nie ma obowiązku tego robić!). Możesz także wykorzystać np. usługę ngrok, aby wystawić nam swoją lokalną aplikację wprost z Twojego dysku.
+
+Jak wysłać URL do API do centrali?
+
+{
+ "apikey":"TWOJ-KLUCZ",
+ "answer":"<https://azyl-12345.ag3nts.org/moje_api>",
+ "task":"webhook"
+}
+
+
+Co należy zrobić w zadaniu?
+
+Tworzysz aplikację (hostowaną tam, gdzie zechcesz), która przyjmuje requesty w formie JSON-a po HTTPS.
+
+Musisz przygotować dość złożonego prompta, który w sposób zrozumiały dla LLM-a wyjaśni mu, jak wygląda mapa, którą właśnie oglądasz. Sugerujemy NIE korzystać tutaj z modelu graficznego rozpoznającego obraz. To mogłoby być bardzo kosztowne i skomplikowane.
+
+Wysyłasz URL-a do Twojego API do centrali
+
+Centrala wysyła serię zapytań pod adres URL, który został wysłany w polu “answer”
+
+JSON od centrali zawiera pole “instruction” z opisem lotu drona
+
+Twoim zadaniem jest zwrócenie poprawnego JSON-a z polem “description” zawierającego opis pola, na którym znajduje się dron po odbyciu lotu
+
+Opis miejsca, nad którym zawisł dron może mieć maksymalnie dwa słowa
+
+Twój JSON może mieć tyle pól, ile potrzebujesz (przydatne przy ‘głośnym myśleniu’!), ale tylko description jest brane pod uwagę.
+
+Jeśli zaliczysz trzy loty, otrzymasz flagę.
+
+UWAGA: absolutnie kluczowym elementem zadania jest sprytne opisanie modelowi językowemu, jak wygląda świat z mapy. Musi to być zrobione w sposób jednoznaczny. Pamiętaj także, że mapa ma formę kwadratu 4x4. Pamiętaj także, że Twoje API powinno być bezstanowe, co oznacza, że NIE zapamiętujesz, gdzie skończył się ostatni lot drona. Zawsze zaczynasz z pozycji startowej.
